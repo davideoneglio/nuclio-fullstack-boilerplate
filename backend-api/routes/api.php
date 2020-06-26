@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/boards/{title}', 'BoardsController@create');
+
+Route::get('/boards', 'BoardsController@findAll');
+
+Route::get('/boards/{title}', 'BoardsController@findByTitle');
+
+Route::put('/boards/{title}', 'BoardsController@update');
+
+Route::delete('/boards/{title}', 'BoardsController@delete');
