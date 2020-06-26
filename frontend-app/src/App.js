@@ -1,19 +1,22 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import LoginForm from "./Components/LoginForm";
 import './App.css';
+import LandingPage from "./Components/LandingPage/LandingPage";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {Signup} from "./Components/SignupPage/signuppage";
+import LoginForm from "./Components/LoginForm";
 
 function App() {
   return (
-    <div>
-        <Router>
-                <Switch>
-                    <Route path="/login">
-                        <LoginForm/>
-                    </Route>
-                </Switch>
-        </Router>
-    </div>
+      <Router>
+        <div className="App">
+            <Switch>
+                <Route exact path="/" render={props => <LandingPage {...props}/>}/>
+                <Route exact path="/signup" render={props => <Signup {...props}/>}/>
+                 <Route exact path="/login"><LoginForm/>
+              </Route>
+            </Switch>
+        </div>
+      </Router>
   );
 }
 
