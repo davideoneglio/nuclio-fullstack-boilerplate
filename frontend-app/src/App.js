@@ -8,9 +8,10 @@ function App() {
   return (
       <Router>
         <div className="App">
-            <Route render={props => <LandingPage {...props}/>}/>
-            <Signup />
-
+            <Switch>
+                <Route exact path="/" render={props => <LandingPage {...props}/>}/>
+                <Route exact path="/signup" render={props => <Signup {...props}/>}/>
+            </Switch>
         </div>
       </Router>
   );

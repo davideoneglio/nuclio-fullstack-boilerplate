@@ -9,7 +9,7 @@ const LandingPageHeader = props =>{
                 <img src={trello} alt="trello"/>
                 <div className={"landing-buttons-box"}>
                     <Link to={'/login'} className={"landing-page-header-btn"}><a >Iniciar sesión</a></Link>
-                    <Link to={'/singup'} className={"landing-page-header-btn"}><a >Registrarse</a></Link>
+                    <Link to={'/signup'} className={"landing-page-header-btn"}><a >Registrarse</a></Link>
                 </div>
             </div>
     )
