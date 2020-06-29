@@ -1,7 +1,7 @@
 import React from 'react';
 import './Lists.css'
-import Cards from "./Cards";
-import ActionButton from "./actions/ActionButton";
+import Cards from "../Cards/Cards";
+import ActionButton from "../actions/ActionButton";
 import { Droppable } from "react-beautiful-dnd";
 
 const Lists = ({title, cards, listId}) => {

@@ -5,7 +5,8 @@ import TextareaAutosize from 'react-autosize-textarea';
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
-import { addList, addCard } from "../actions";
+import { addList } from "./listsAction";
+import { addCard } from "./cardsAction";
 
 class ActionButton extends React.Component {
 
@@ -43,7 +44,7 @@ class ActionButton extends React.Component {
             dispatch(addList(text))
         }
 
-        return;
+        return 0;
     };
 
     handleAddCard = () => {

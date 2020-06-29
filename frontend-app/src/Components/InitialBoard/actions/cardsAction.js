@@ -1,4 +1,4 @@
-import { constants } from "../actions";
+import { constants } from "./index";
 
 export const addCard = (listId, text) => {
     return {

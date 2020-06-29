@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import Lists from "./Lists.js";
-import "./App.css"
+import Lists from "./Lists/Lists.js";
+import "../InitialBoard/initialBoard.css"
 import { connect } from "react-redux"
-import ActionButton from "./actions/ActionButton";
+import ActionButton from "./actions/ActionButton"
 import { DragDropContext } from "react-beautiful-dnd";
 
-class App extends Component {
+class initialBoard extends Component {
 
-    onDragEnd = () => { /* Reordenar Lógica */
+    onDragEnd = () => {
 
     }
 
@@ -17,8 +17,9 @@ class App extends Component {
 
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
-                <div className="App">
-                    <h1>Initial Board</h1>
+                <div className="board">
+                    <img alt="Trello" className="trello-logo"
+                         src="https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/trello-header-logos/76ceb1faa939ede03abacb6efacdde16/trello-logo-blue.svg" />
                     <div className="listsContainer">
                         {lists.map(list => (
                             <Lists listId={list.id} key={list.id} title={list.title} cards={list.cards}/>
@@ -36,4 +37,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps) (initialBoard);
