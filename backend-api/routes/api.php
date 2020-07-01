@@ -17,6 +17,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Añadido por mi
+Route::post('/users','UsersController@create');
+
+Route::get('/users', 'UsersController@findAll');
+
+Route::get('/users/{id}', 'UsersController@findById');
+
+
+//Routas de los boards
 Route::post('/boards/{title}', 'BoardsController@create');
 
 Route::get('/boards', 'BoardsController@findAll');
