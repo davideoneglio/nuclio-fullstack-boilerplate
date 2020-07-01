@@ -9,15 +9,10 @@
 
 }
 
-header {
-    color: transparent;
-}
-
 .trello-main-logo {
     width: 140px;
     height: 43px;
-    display: block;
-    margin: 35px auto;
+    padding: 35px;
 
 }
 
