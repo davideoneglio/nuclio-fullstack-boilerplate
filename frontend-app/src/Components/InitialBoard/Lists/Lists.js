@@ -2,22 +2,29 @@ import React from 'react';
 import './Lists.css'
 import Cards from "../Cards/Cards";
 import ActionButton from "../actions/ActionButton";
-import { Droppable } from "react-beautiful-dnd";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 
-const Lists = ({title, cards, listId}) => {
+const Lists = ({title, cards, listId, index}) => {
     return (
-        <Droppable droppableId={String(listId)}>
+        <Draggable draggableId={String(listId)} index={index}>
             {provided => (
-                <div {...provided.droppableProps} ref={provided.innerRef} className="title">
-                    <h4>{title}</h4>
-                    {cards.map((card, index) => (
-                        <Cards key={card.id} index={index} text={card.text} id={card.id} />
-                    ))}
-                    <ActionButton listId={listId}/>
-                    {provided.placeholder}
+                <div {...provided.draggableProps} ref={provided.innerRef} className="title" {...provided.dragHandleProps}>
+                    <Droppable droppableId={String(listId)}>
+                        {provided => (
+                            <div {...provided.droppableProps} ref={provided.innerRef}>
+                                <h4>{title}</h4>
+                                {cards.map((card, index) => (
+                                    <Cards key={card.id} index={index} text={card.text} id={card.id} />
+                                ))}
+                                {provided.placeholder}
+                                <ActionButton listId={listId} />
+                            </div>
+                        )}
+                    </Droppable>
                 </div>
             )}
-        </Droppable>
+
+        </Draggable>
     );
 };
 
