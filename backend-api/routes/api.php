@@ -18,11 +18,29 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //Añadido por mi
-Route::post('/users','UsersController@create');
 
-Route::get('/users', 'UsersController@findAll');
+Route::group(['middleware' => 'auth.jwt'], function (){
 
-Route::get('/users/{id}', 'UsersController@findById');
+    Route::post('/users','UsersController@create');
+
+    Route::get('/users', 'UsersController@findAll');
+
+    Route::get('/users/{id}', 'UsersController@findById');
+
+    Route::post('/refresh','AuthController@refresh');
+
+    Route::post('/logout','AuthController@logout');
+
+});
+
+Route::post('/register','AuthController@register');
+
+Route::post('/login','AuthController@login');
+
+
+
+
+
 
 
 //Routas de los boards
