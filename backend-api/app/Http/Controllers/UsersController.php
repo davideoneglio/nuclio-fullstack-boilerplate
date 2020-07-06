@@ -3,11 +3,12 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Mail\WelcomeMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
@@ -22,6 +23,8 @@ class UsersController extends Controller
             'password' => ['required', 'max:255'],
         ]);
 
+        //Mail::to($data->email)->send(new WelcomeMail($data));
+
         if(!$userValidator->validate()) {
             $errors = $userValidator->errors()->getMessages();
             $code = Response::HTTP_NOT_ACCEPTABLE; //422
@@ -35,6 +38,7 @@ class UsersController extends Controller
         ]);
 
         return response()->json($user);
+
     }
 
     public function findAll()
@@ -50,7 +54,6 @@ class UsersController extends Controller
 
         return response()->json($user);
     }
-
 }
 
 

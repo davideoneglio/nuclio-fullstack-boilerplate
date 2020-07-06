@@ -11,6 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Mail;
+
+Route::get('/email', function () {
+
+    $data=[
+        "title"=>"Welcome",
+        "content"=>"Prueba"
+    ];
+
+    Mail::send("emails.test", $data, function ($mensaje){
+
+        $mensaje->to("pepefaura19@gmail.com", "Pepe")->subject("Welcome Mail");
+
+    });
+
+});*/
+
+
