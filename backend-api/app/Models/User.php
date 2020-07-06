@@ -38,9 +38,4 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = Hash::make($password);
-    }
-
 }
