@@ -42,6 +42,15 @@ export const Signup = props => {
     const handleOnClickSubmit = () => {
         validatePassword();
         if(!errors.password && !errors.email) {
+            fetch("http://localhost/api/sendEmail",{
+                "method": "POST",
+                "mode": "cors",
+                "headers": {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                "body": JSON.stringify(data),
+            })
             fetch("http://localhost/api/register", {
                 "method": "POST",
                 "mode": "cors",

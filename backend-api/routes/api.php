@@ -37,13 +37,7 @@ Route::post('/register','AuthController@register');
 
 Route::post('/login','AuthController@login');
 
-
-
-
-
-
-
-//Routas de los boards
+//Rutas de los boards
 Route::post('/boards/{title}', 'BoardsController@create');
 
 Route::get('/boards', 'BoardsController@findAll');
@@ -53,3 +47,7 @@ Route::get('/boards/{title}', 'BoardsController@findByTitle');
 Route::put('/boards/{title}', 'BoardsController@update');
 
 Route::delete('/boards/{title}', 'BoardsController@delete');
+
+//ruta email
+
+Route::post('/sendEmail', 'UsersController@sendEmail');
