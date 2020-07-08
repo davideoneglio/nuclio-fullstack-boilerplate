@@ -1,0 +1,18 @@
+.personal-board-title{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.personal-boards-box h4{
+    margin-left: .4rem;
+}
+
+.user-icon{
+    font-size: 1.2rem;
+}
+
+.boards-personal{
+    display: flex;
+    justify-content: start;
+}
