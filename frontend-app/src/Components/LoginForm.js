@@ -3,18 +3,18 @@ import './LoginForm.css';
 import { useHistory } from "react-router-dom";
 
 const LoginForm = props => {
-    const [data, setData] = useState({user: "", password: ""});
-    const [formError, setFormError] = useState({user: false, password: false});
+    const [data, setData] = useState({email: "", password: ""});
+    const [formError, setFormError] = useState({email: false, password: false});
     const [error, setError] =useState(false)
 
     const handleInputChange = (key, newValue) => {
         setData({...data, [key]:newValue});
     };
 
-    const validateUser = (user) => {
+    const validateUser = (email) => {
         const pattern = /^([a-zA-Z0-9-.]+)@([a-zA-Z0-9-.]+).([a-zA-Z]{2,5})$/;
         const regex = RegExp(pattern);
-        return regex.test(user);
+        return regex.test(email);
     };
 
     const validatePass = (password) => {
@@ -26,14 +26,13 @@ const LoginForm = props => {
 
     const handleInputOnblur = (key, newValue) => {
         let isValid = true;
-        if (key === "user") {
+        if (key === "email") {
             isValid = validateUser(newValue)
         } if (key === "password") {
             isValid = validatePass(newValue)
         }
-
-        setFormError({ [key]: !isValid });
-    }
+        setFormError({...formError, [key]: !isValid});
+    };
 
 
     const formHasErrors = (errors) => {
@@ -63,20 +62,21 @@ const LoginForm = props => {
                 body: JSON.stringify(data),
             })
                 .then((res) => {
-                    return res.json();
-                })
-                .then((resJson) => {
-                    debugger;
-                    if (resJson.code > 400) {
-                        setError(resJson.error);
-                    } else {
-                        localStorage.setItem('token', resJson);
-                        history.push("/home")//guardar este resJson en mi local storage y después hacer un redirect a la home page
+                    if(res > 400) {
+                        setError(res.error);
                     }
+                    return res.json();
+                }).catch((error) => {
+                    debugger;
+                console.log(error);
+            })
+                .then((resJson) => {
+
+                    localStorage.setItem('token', resJson.access_token);
+                    history.push("/home")//guardar este resJson en mi local storage y después hacer un redirect a la home page
+
                 })
-                .catch((error) => {
-                    console.log(error);
-                });
+
         } else{
             setFormError(errors);
         }
@@ -93,20 +93,20 @@ const LoginForm = props => {
                         <div>
                             <div>
                                 <input
-                                    onChange={event => handleInputChange('user', event.target.value)}
-                                    onBlur={event => handleInputOnblur('user', event.target.value)}
-                                    value={data.user}
+                                    onChange={event => handleInputChange('email', event.target.value)}
+                                    onBlur={event => handleInputOnblur('email', event.target.value)}
+                                    value={data.email}
                                     type="text"
                                     name="user"
                                     id="user"
-                                    className={!formError.user ? "userFormField" : "error"}
+                                    className={!formError.email ? "userFormField" : "error"}
                                     placeholder="Introduzca el correo electrónico"
                                     autoComplete="username email"
                                     inputMode="email"
                                     pattern="[a-z]{1,15}"
                                     title="Username should only contain lowercase letters. e.g. john"
                                     required/>
-                                    {formError.user && <legend className="errorMessage" >Hay un error en el username</legend>}
+                                    {formError.email && <legend className="errorMessage" >Hay un error en el username</legend>}
                             </div>
                             <div>
                                 <input

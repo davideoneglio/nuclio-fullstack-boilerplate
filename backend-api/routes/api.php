@@ -12,16 +12,44 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-//Ya estaba al principio, que es?
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});*/
+});
 
 //Añadido por mi
-Route::post('/users','UsersController@create');
 
-Route::get('/users', 'UsersController@findAll');
+Route::group(['middleware' => 'auth.jwt'], function (){
 
-Route::get('/users/{id}', 'UsersController@findById');
+    Route::post('/users','UsersController@create');
+
+    Route::get('/users', 'UsersController@findAll');
+
+    Route::get('/users/{id}', 'UsersController@findById');
+
+    Route::post('/refresh','AuthController@refresh');
+
+    Route::post('/logout','AuthController@logout');
+
+});
+
+Route::post('/register','AuthController@register');
+
+Route::post('/login','AuthController@login');
 
 
+
+
+
+
+
+//Routas de los boards
+Route::post('/boards/{title}', 'BoardsController@create');
+
+Route::get('/boards', 'BoardsController@findAll');
+
+Route::get('/boards/{title}', 'BoardsController@findByTitle');
+
+Route::put('/boards/{title}', 'BoardsController@update');
+
+Route::delete('/boards/{title}', 'BoardsController@delete');
