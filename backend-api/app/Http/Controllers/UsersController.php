@@ -3,12 +3,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\WelcomeMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
@@ -22,8 +20,6 @@ class UsersController extends Controller
             'email' => ['required', 'email', 'max:255', 'unique:users_trello,email'],
             'password' => ['required', 'max:255'],
         ]);
-
-        //Mail::to($data->email)->send(new WelcomeMail($data));
 
         if(!$userValidator->validate()) {
             $errors = $userValidator->errors()->getMessages();
@@ -53,6 +49,16 @@ class UsersController extends Controller
         $user = User::where('id', $id)->first();
 
         return response()->json($user);
+    }
+
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
+
+    public function index()
+    {
+        return view('home');
     }
 }
 

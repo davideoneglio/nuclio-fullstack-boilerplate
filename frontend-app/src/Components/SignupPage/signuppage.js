@@ -56,7 +56,6 @@ export const Signup = props => {
                 //history.push("/home") ¡falta declarar la ruta!
             }).catch(function(error) {
                 console.log('Hubo un problema con la petición Fetch:' + error);
-                let displayErrors = setData(error);
             })
         }
     }

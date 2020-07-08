@@ -3,13 +3,15 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements JWTSubject, MustVerifyEmail
 {
     protected $table = 'users';
 
@@ -17,9 +19,13 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
-        'created_at',
-        'updated_at',
     ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
 
     /*protected function users () {
         return $this->hasMany(User::class);
@@ -37,5 +43,4 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
-
 }

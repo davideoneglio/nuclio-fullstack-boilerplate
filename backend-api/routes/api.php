@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,21 @@ Route::post('/register','AuthController@register');
 
 Route::post('/login','AuthController@login');
 
+Route::get('/send', function () {
 
+    $datos=[
+        "titulo"=>"hola",
+        "contenido"=>"hola"
+    ];
+
+    Mail::send("welcome", $datos, function ($mensaje){
+
+        $mensaje->to("pepefaura19@gmail.com", "Pepe")->subject("prueba");
+
+    }
+
+    );
+});
 
 
 

@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('sandbox5c96aaca313240bdacb5553f23f26680.mailgun.org'),
-        'secret' => env('acb4356131b1e3b2f0ddafabcb65519c-87c34c41-b331a371'),
+        'domain' => env('MAILGUN_DOMAIN'),
+        'secret' => env('MAILGUN_SECRET'),
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.eu.mailgun.net'),
     ],
 
@@ -29,4 +29,5 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+
 ];

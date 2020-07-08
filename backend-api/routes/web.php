@@ -11,22 +11,21 @@
 |
 */
 
-/*use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Mail;
 
-Route::get('/email', function () {
+Route::get('/send', function () {
 
-    $data=[
-        "title"=>"Welcome",
-        "content"=>"Prueba"
+    $datos=[
+        "titulo"=>"hola",
+        "contenido"=>"hola"
     ];
 
-    Mail::send("emails.test", $data, function ($mensaje){
+    Mail::send("welcome", $datos, function ($mensaje){
 
-        $mensaje->to("pepefaura19@gmail.com", "Pepe")->subject("Welcome Mail");
+        $mensaje->to("pepefaura19@gmail.com", "Pepe")->subject("prueba");
 
-    });
+    }
 
-});*/
-
+    );
+});
 
