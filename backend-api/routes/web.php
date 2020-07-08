@@ -11,21 +11,6 @@
 |
 */
 
-use Illuminate\Support\Facades\Mail;
-
-Route::get('/send', function () {
-
-    $datos=[
-        "titulo"=>"hola",
-        "contenido"=>"hola"
-    ];
-
-    Mail::send("welcome", $datos, function ($mensaje){
-
-        $mensaje->to("pepefaura19@gmail.com", "Pepe")->subject("prueba");
-
-    }
-
-    );
+Route::get('/', function () {
+    return view('welcome');
 });
-

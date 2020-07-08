@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +12,10 @@ use Illuminate\Support\Facades\Mail;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-//Ya estaba al principio, que es?
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});*/
+});
 
 //Añadido por mi
 
@@ -38,27 +37,19 @@ Route::post('/register','AuthController@register');
 
 Route::post('/login','AuthController@login');
 
-Route::get('/send', function () {
-
-    $datos=[
-        "titulo"=>"hola",
-        "contenido"=>"hola"
-    ];
-
-    Mail::send("welcome", $datos, function ($mensaje){
-
-        $mensaje->to("pepefaura19@gmail.com", "Pepe")->subject("prueba");
-
-    }
-
-    );
-});
 
 
 
 
 
 
+//Routas de los boards
+Route::post('/boards/{title}', 'BoardsController@create');
 
+Route::get('/boards', 'BoardsController@findAll');
 
+Route::get('/boards/{title}', 'BoardsController@findByTitle');
 
+Route::put('/boards/{title}', 'BoardsController@update');
+
+Route::delete('/boards/{title}', 'BoardsController@delete');

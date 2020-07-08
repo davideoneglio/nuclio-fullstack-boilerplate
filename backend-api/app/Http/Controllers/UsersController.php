@@ -51,15 +51,6 @@ class UsersController extends Controller
         return response()->json($user);
     }
 
-    public function __construct()
-    {
-        $this->middleware(['auth','verified']);
-    }
-
-    public function index()
-    {
-        return view('home');
-    }
 }
 
 
