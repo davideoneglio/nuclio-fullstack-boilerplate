@@ -53,7 +53,7 @@ export const Signup = props => {
             }).then(response => response.json()
             ).then(response => {
                 return response
-                //history.push("/home") ¡falta declarar la ruta!
+                //history.push("/home") //¡falta declarar la ruta!
             }).catch(function(error) {
                 console.log('Hubo un problema con la petición Fetch:' + error);
                 let displayErrors = setData(error);
