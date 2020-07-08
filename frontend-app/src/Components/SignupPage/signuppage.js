@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
 import './signuppage.css';
+import imageRight from '../../Components/SignupPage/images/Captura de pantalla 2020-07-03 a las 19.41.19.png'
+import imageLeft from '../../Components/SignupPage/images/Captura de pantalla 2020-07-03 a las 19.41.48.png'
+import {InputForm} from "./InputForm/inputform";
+
 
 export const Signup = props => {
 
@@ -9,14 +13,10 @@ export const Signup = props => {
         password: ""
     };
 
-    const initialErrorState = {
-        email: false,
-        name: false,
-        password: false
-    }
-
     const [ data, setData ] = useState(initialState);
-    const [ formError, setFormError ] = useState(initialErrorState);
+    const [ errors, setErrors] = useState({email: false, password: false})
+
+    const isEnabled = data["email"].length > 0 && data["password"].length > 0 && data["name"].length > 0;
 
     const handleChange = (key, newValue) => {
         setData({
@@ -25,8 +25,24 @@ export const Signup = props => {
         });
     };
 
-    const sendData = () => {
-            fetch("http://localhost/api/users", {
+    const validateEmail = () => {
+        const pattern = /^([a-zA-Z0-9-.]+)@([a-zA-Z0-9-.]+).([a-zA-Z]{2,5})$/;
+        const regex = RegExp(pattern);
+        if(data.email.length > 0){
+            setErrors({...errors, email:!regex.test(data.email)});
+        }
+    };
+
+    const validatePassword = () => {
+        const pattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/;
+        const regex = RegExp(pattern);
+        setErrors({...errors, password:!regex.test(data.password)});
+    };
+
+    const handleOnClickSubmit = () => {
+        validatePassword();
+        if(!errors.password && !errors.email) {
+            fetch("http://localhost/api/register", {
                 "method": "POST",
                 "mode": "cors",
                 "headers": {
@@ -37,21 +53,23 @@ export const Signup = props => {
             }).then(response => response.json()
             ).then(response => {
                 return response
+                //history.push("/home") //¡falta declarar la ruta!
             }).catch(function(error) {
                 console.log('Hubo un problema con la petición Fetch:' + error);
+                let displayErrors = setData(error);
             })
+        }
     }
 
     return(
         <div className="root">
-            <header>
-                a
-            </header>
-
-
-            <div className="image-container">
-                <img alt="Trello" className="trello-main-logo"
-                     src="https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/trello-header-logos/76ceb1faa939ede03abacb6efacdde16/trello-logo-blue.svg" />
+            <div className="display-image-left">
+                <img src={imageRight} alt="imageRight" width="300px" height="300px"/>
+            </div>
+            <div>
+                <div className="image-container">
+                    <img alt="Trello" className="trello-main-logo"
+                         src="https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/trello-header-logos/76ceb1faa939ede03abacb6efacdde16/trello-logo-blue.svg" />
                     <section className="inner-section">
                         <div className="section-wrapper">
                             <div id="signup-form"
@@ -60,114 +78,108 @@ export const Signup = props => {
                                 <div id="signup-password"
                                      className="quick-switch">
 
+                                    {errors.password ? <p className="input-error-message-password">La contraseña debe contener al menos 8 caracteres.</p> : undefined}
+
                                     <h1>Crea tu cuenta</h1>
 
-                                        <input type="email"
+                                    <InputForm type="email"
                                                onChange={event => handleChange("email", event.target.value)}
                                                value={data.email}
-                                               required
+                                               error={errors.email ? "Esto no parece una dirección de correo electrónico..." : undefined}
+                                               onBlur={validateEmail}
                                                name="email"
                                                id="email"
                                                typeof="email"
                                                className="form-field"
-                                               tabIndex="0"
-                                               autoCorrect="off"
-                                               spellCheck="false"
-                                               autoCapitalize="off"
                                                placeholder="Introduzca el correo electrónico"
-                                               autoComplete="username email"
                                                autoFocus={true}/>
 
-                                        <input type="text"
+                                    <InputForm type="text"
                                                value={data.name}
                                                onChange={event => handleChange("name", event.target.value)}
-                                               required
                                                name="name"
                                                id="name"
                                                className="form-field"
-                                               tabIndex="0"
-                                               autoCorrect="off"
-                                               spellCheck="false"
-                                               autoCapitalize="off"
-                                               placeholder="Introduzca el nombre completo"
-                                               autoComplete="name" />
+                                               placeholder="Introduzca el nombre completo"/>
 
-                                        <input type="password"
+                                    <InputForm type="password"
                                                value={data.password}
                                                onChange={event => handleChange("password", event.target.value)}
-                                               required
                                                name="password"
                                                id="password"
                                                className="form-field"
-                                               tabIndex="0"
-                                               placeholder="Crear contraseña"
-                                               autoComplete="new-password" />
+                                               placeholder="Crear contraseña" />
 
-                                        <p className="quiet-tos">
-                                            Al registrarse, confirma que ha leído y aceptado nuestras
-                                            <a href="#" target="_blank"> Condiciones del Servicio </a>
-                                             y nuestra
-                                            <a href="#" target="_blank"> Política de Privacidad.</a>
-                                        </p>
+                                    <p className="quiet-tos">
+                                       Al registrarse, confirma que ha leído y aceptado nuestras
+                                       <a href="#" target="_blank"> Condiciones del Servicio </a>
+                                       y nuestra
+                                       <a href="#" target="_blank"> Política de Privacidad.</a>
+                                    </p>
 
-                                        <input id="signup-submit"
-                                               tabIndex="0"
-                                               type="submit"
-                                               className="submit-button"
-                                               value="Registrarse"
-                                               onClick={sendData} />
+                                    <button id="signup-submit"
+                                            tabIndex="0"
+                                            type="submit"
+                                            className="submit-button"
+                                            value="Registrarse"
+                                            disabled={!isEnabled}
+                                            onClick={handleOnClickSubmit} >Registrarse</button>
                                     <hr />
                                     <span className="bottom-form-link">
-                                        <a href="#">¿Ya tiene una cuenta? Inicie sesión</a>
-                                    </span>
+                                            <a href="#">¿Ya tiene una cuenta? Inicie sesión</a>
+                                        </span>
                                 </div>
                             </div>
                         </div>
                     </section>
-        </div>
-            <footer className="global-footer">
-                <form id="language-picker-container">
-                    <label htmlFor="language-picker"/>
-                    <select id="language-picker" name="language-picker">
-                        <option value="Čeština">Čeština</option>
-                    </select>
-                </form>
-                <div>
-                    <hr/>
-                    <img className="atlassian-logo-small"
-                         src="https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/16006ae28f149063408d601e8c80eddc/atlassian-logo-blue-small.svg"
-                         width="150"  alt="atlassian-logo"/>
                 </div>
-                <ul className="global-footer-list">
-                    <li className="global-footer-list-item">
-                        <a className="global-footer-list-item-link" href="#">Plantillas</a>
-                    </li>
-                    <li className="global-footer-list-item">
-                        <a className="global-footer-list-item-link" href="#">Precios</a>
-                    </li>
-                    <li className="global-footer-list-item">
-                        <a className="global-footer-list-item-link" href="#">Aplicaciones</a>
-                    </li>
-                    <li className="global-footer-list-item">
-                        <a className="global-footer-list-item-link" href="#">Trabajos</a>
-                    </li>
-                    <li className="global-footer-list-item">
-                        <a className="global-footer-list-item-link" href="#">Blog</a>
-                    </li>
-                    <li className="global-footer-list-item">
-                        <a className="global-footer-list-item-link" href="#">Desarrolladores</a>
-                    </li>
-                    <li className="global-footer-list-item">
-                        <a className="global-footer-list-item-link" href="#">Acerca de </a>
-                    </li>
-                    <li className="global-footer-list-item">
-                        <a className="global-footer-list-item-link" href="#">Ayuda</a>
-                    </li>
-                    <li className="global-footer-list-item">
-                        <a className="global-footer-list-item-link" href="#">Configuración de las cookies</a>
-                    </li>
-                </ul>
-            </footer>
+                <footer className="global-footer">
+                    <form id="language-picker-container">
+                        <label htmlFor="language-picker"/>
+                        <select id="language-picker" name="language-picker">
+                            <option value="Čeština">Čeština</option>
+                        </select>
+                    </form>
+                    <div>
+                        <hr/>
+                        <img className="atlassian-logo-small"
+                             src="https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/16006ae28f149063408d601e8c80eddc/atlassian-logo-blue-small.svg"
+                             width="150"  alt="atlassian-logo"/>
+                    </div>
+                    <ul className="global-footer-list">
+                        <li className="global-footer-list-item">
+                            <a className="global-footer-list-item-link" href="#">Plantillas</a>
+                        </li>
+                        <li className="global-footer-list-item">
+                            <a className="global-footer-list-item-link" href="#">Precios</a>
+                        </li>
+                        <li className="global-footer-list-item">
+                            <a className="global-footer-list-item-link" href="#">Aplicaciones</a>
+                        </li>
+                        <li className="global-footer-list-item">
+                            <a className="global-footer-list-item-link" href="#">Trabajos</a>
+                        </li>
+                        <li className="global-footer-list-item">
+                            <a className="global-footer-list-item-link" href="#">Blog</a>
+                        </li>
+                        <li className="global-footer-list-item">
+                            <a className="global-footer-list-item-link" href="#">Desarrolladores</a>
+                        </li>
+                        <li className="global-footer-list-item">
+                            <a className="global-footer-list-item-link" href="#">Acerca de </a>
+                        </li>
+                        <li className="global-footer-list-item">
+                            <a className="global-footer-list-item-link" href="#">Ayuda</a>
+                        </li>
+                        <li className="global-footer-list-item">
+                            <a className="global-footer-list-item-link" href="#">Configuración de las cookies</a>
+                        </li>
+                    </ul>
+                </footer>
+            </div>
+            <div className="display-image-right">
+                <img src={imageLeft} alt="imageRight" width="300px" height="300px"/>
+            </div>
         </div>
     );
 };
