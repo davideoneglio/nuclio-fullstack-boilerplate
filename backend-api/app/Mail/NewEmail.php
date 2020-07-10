@@ -31,6 +31,6 @@ class NewEmail extends Mailable
 
     public function build()
     {
-        return $this->subject('Test')->view('emails.newEmail');//->with(['data', $this->data]);
+        return $this->subject('Welcome email')->view('emails.newEmail');//->with(['data', $this->data]);
     }
 }

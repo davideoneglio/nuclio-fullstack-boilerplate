@@ -87,7 +87,7 @@ export const Signup = props => {
                                 <div id="signup-password"
                                      className="quick-switch">
 
-                                    {errors.password ? <p className="input-error-message-password">La contraseña debe contener al menos 8 caracteres.</p> : undefined}
+                                    {errors.password ? <p className="input-error-message-password">La contraseña debe contener al menos 8 caracteres, una letra mayúscula y un número.</p> : undefined}
 
                                     <h1>Crea tu cuenta</h1>
 
