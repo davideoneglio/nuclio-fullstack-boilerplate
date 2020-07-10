@@ -6,14 +6,11 @@ import { Route, Redirect } from 'react-router-dom';
 const PrivateRoute = (props) => {
     const {component: Component, ...rest} = props;
 
-    const isLogged = () => {
-        const token = localStorage.getItem('token');
-        return token !== undefined && token !== null;
-    }
+    const token = localStorage.getItem('token');
 
     return (
         <Route {...rest} render={props => (
-            isLogged() ?
+            (token !== "undefined") && (token !== null) && (token !== undefined) ?
                 <Component {...props} />
                 : <Redirect to="/login" />
         )} />

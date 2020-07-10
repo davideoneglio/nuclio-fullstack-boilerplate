@@ -16,7 +16,7 @@ function App() {
                 <Route exact path="/signup" render={props => <Signup {...props}/>}/>
                 <Route exact path="/boards" component={initialBoard} />
                 <Route exact path="/login"><LoginForm/></Route>
-                <PrivateRoute  path="/home" component={() => console.log("HOOOOOOLA")}/>
+                <PrivateRoute  path="/home" component={() => {console.log("HOOOOOOLA"); return null}}/>
             </Switch>
         </div>
       </Router>

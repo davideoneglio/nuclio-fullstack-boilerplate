@@ -17,20 +17,20 @@ const LoginForm = props => {
         return regex.test(email);
     };
 
-    const validatePass = (password) => {
+    /*const validatePass = (password) => {
         const pattern = /^(?=^[ -~]{6,64}$)(?=.*([a-z][A-Z]))(?=.*[0-9])(.*[ -/|:-@|\[-`|{-~]).+$/;
         const regex = RegExp(pattern);
         return regex.test(password);
-    };
+    };*/
 
 
     const handleInputOnblur = (key, newValue) => {
         let isValid = true;
         if (key === "email") {
             isValid = validateUser(newValue)
-        } if (key === "password") {
+        } /*if (key === "password") {
             isValid = validatePass(newValue)
-        }
+        }*/
         setFormError({...formError, [key]: !isValid});
     };
 
@@ -71,23 +71,19 @@ const LoginForm = props => {
                 console.log(error);
             })
                 .then((resJson) => {
-
                     localStorage.setItem('token', resJson.access_token);
                     history.push("/home")//guardar este resJson en mi local storage y después hacer un redirect a la home page
-
                 })
-
         } else{
             setFormError(errors);
         }
-
     };
     return (
-        <div className="container">
+        <div className="container-login">
             <div>
-                <img alt="Trello" className="trello-main-logo"
+                <img alt="Trello" className="trello-main-logo-login"
                      src="https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/trello-header-logos/76ceb1faa939ede03abacb6efacdde16/trello-logo-blue.svg"/>
-                <section className="inner-section">
+                <section className="inner-section-login ">
                     <div className="formBox">
                         <div><h1 className="headForm"> Iniciar sesión en Trello</h1></div>
                         <div>
@@ -99,7 +95,7 @@ const LoginForm = props => {
                                     type="text"
                                     name="user"
                                     id="user"
-                                    className={!formError.email ? "userFormField" : "error"}
+                                    className={!formError.email ? "userFormField" : "error-login"}
                                     placeholder="Introduzca el correo electrónico"
                                     autoComplete="username email"
                                     inputMode="email"
@@ -116,7 +112,7 @@ const LoginForm = props => {
                                     type="password"
                                     name="password"
                                     id="password"
-                                    className={!formError.password ? "userFormField" : "error"}
+                                    className={!formError.password ? "userFormField" : "error-login"}
                                     placeholder="Introduzca la contraseña"
                                     autoComplete="current-password"
                                     required/>
@@ -159,7 +155,7 @@ const LoginForm = props => {
                     </div>
                 </section>
             </div>
-            <footer className="footer">
+            <footer className="footer-login">
                 <div className="FooterLine"></div>
                 <div>
                     <img src="https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/16006ae28f149063408d601e8c80eddc/atlassian-logo-blue-small.svg"
