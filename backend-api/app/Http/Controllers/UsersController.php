@@ -3,10 +3,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewEmail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
@@ -21,10 +23,10 @@ class UsersController extends Controller
             'password' => ['required', 'max:255'],
         ]);
 
-        if(!$userValidator->validate()) {
+        if (!$userValidator->fails()) {
             $errors = $userValidator->errors()->getMessages();
             $code = Response::HTTP_NOT_ACCEPTABLE; //422
-            return response()->json(['error'=>$errors, 'code'=>$code], $code);
+            return response()->json(['error' => $errors, 'code' => $code], $code);
         }
 
         $user = User::create([
@@ -34,6 +36,17 @@ class UsersController extends Controller
         ]);
 
         return response()->json($user);
+
+    }
+
+    public function sendEmail(Request $request)
+    {
+
+        $data = $request->all();
+
+        Mail::to($data['email'])->send(new NewEmail());
+
+        return response()->json($data);
 
     }
 
