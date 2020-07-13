@@ -25,12 +25,17 @@ Route::get('/users', 'UsersController@findAll');
 Route::get('/users/{id}', 'UsersController@findById');
 
 
+
+Route::middleware('auth:api')->get('/board', function (Request $request) {
+    return $request->board();
+});
+
 //Routas de los boards
 Route::post('/boards/{title}', 'BoardsController@create');
 
 Route::get('/boards', 'BoardsController@findAll');
 
-Route::get('/boards/{title}', 'BoardsController@findByTitle');
+Route::get('/boards/{id}', 'BoardsController@findById');
 
 Route::put('/boards/{title}', 'BoardsController@update');
 

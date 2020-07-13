@@ -13,15 +13,15 @@ class BoardsController extends Controller
     public function create(Request $request) {
         $data = $request->all();
 
-        $board = \App\Boards::create([
+        $board = Boards::create([
             'title' => $data['title']
         ]);
 
         return response()->json($board);
     }
 
-    public function findByTitle($title) {
-        $board = \App\Boards::where('title', $title)->first();
+    public function findById($id) {
+        $board = Boards::where('id', $id)->first();
 
         return response()->json($board);
     }

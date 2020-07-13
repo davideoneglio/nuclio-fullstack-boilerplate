@@ -11,6 +11,11 @@ class Boards extends Model
     protected $fillable = [
         'id',
         'user_id',
-        'title'
+        'title',
+        'created_at',
+        'updated_at'
     ];
 }
+
+/* añadir timestamp para fazer o "recently accessed" das boards
+updat
