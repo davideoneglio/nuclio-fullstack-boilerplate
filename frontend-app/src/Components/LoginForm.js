@@ -99,8 +99,6 @@ const LoginForm = props => {
                                     placeholder="Introduzca el correo electrónico"
                                     autoComplete="username email"
                                     inputMode="email"
-                                    pattern="[a-z]{1,15}"
-                                    title="Username should only contain lowercase letters. e.g. john"
                                     required/>
                                     {formError.email && <legend className="errorMessage" >Hay un error en el username</legend>}
                             </div>
