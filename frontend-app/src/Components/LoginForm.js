@@ -67,10 +67,10 @@ const LoginForm = props => {
                     }
                     return res.json();
                 }).catch((error) => {
-                    debugger;
                 console.log(error);
             })
                 .then((resJson) => {
+                    console.log(resJson)
                     localStorage.setItem('token', resJson.access_token);
                     history.push("/home")//guardar este resJson en mi local storage y después hacer un redirect a la home page
                 })
