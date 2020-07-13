@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import LandingPage from "./Components/LandingPage/LandingPage";
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import {Signup} from "./Components/SignupPage/signuppage";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Signup from "./Components/SignupPage/signuppage";
 import Navbar from "./Components/Navbar"
 import HomePage from "./Components/HomePage/HomePage";
 import LoginForm from "./Components/LoginForm";
@@ -17,10 +17,9 @@ function App() {
                 <Route exact path="/navbar" render={Navbar}/>
                 <Route exact path="/" render={props => <LandingPage {...props}/>}/>
                 <Route exact path="/signup" render={props => <Signup {...props}/>}/>
-                <Route exact path="/home" render={props => <HomePage {...props}/>}/>
+                <PrivateRoute exact path="/home" component={props => <HomePage {...props}/>}/>
                 <Route exact path="/boards" component={initialBoard} />
                 <Route exact path="/login"><LoginForm/></Route>
-                <PrivateRoute  path="/home" component={() => {console.log("HOOOOOOLA"); return null}}/>
             </Switch>
         </div>
       </Router>

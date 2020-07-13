@@ -26,7 +26,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9d76f22-2016-49da-8097-289c5ab745ba" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/app/Http/Controllers/BoardsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/BoardsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/PrivateRoute/privateRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/PrivateRoute/privateRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/SignupPage/signuppage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/SignupPage/signuppage.js" afterDir="false" />
     </list>
     <list id="9cbe5db4-7714-457e-b510-5e965a8b70e0" name="2o commit JMF" comment="2o commit JMF" />
     <option name="SHOW_DIALOG" value="false" />
@@ -275,6 +282,7 @@
       <workItem from="1594324045330" duration="721000" />
       <workItem from="1594399018021" duration="2545000" />
       <workItem from="1594406663133" duration="528000" />
+      <workItem from="1594663181596" duration="4442000" />
     </task>
     <task id="LOCAL-00001" summary="1r commit JMF">
       <created>1593192228867</created>
@@ -391,10 +399,10 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="426" y="164" key="#backend-api.db:_Compose_Deployment/0.23.1440.822@0.23.1440.822" timestamp="1592419692554" />
-    <state x="320" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592420499662">
+    <state x="320" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594663574825">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="320" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.822@0.23.1440.822" timestamp="1592420499662" />
+    <state x="320" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.822@0.23.1440.822" timestamp="1594663574825" />
     <state x="752" y="243" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594134632793">
       <screen x="0" y="23" width="1440" height="822" />
     </state>

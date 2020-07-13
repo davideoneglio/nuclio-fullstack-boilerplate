@@ -13,7 +13,7 @@ class BoardsController extends Controller
     public function create(Request $request) {
         $data = $request->all();
 
-        $board = \App\Boards::create([
+        $board = Boards::create([
             'title' => $data['title']
         ]);
 
@@ -21,7 +21,7 @@ class BoardsController extends Controller
     }
 
     public function findByTitle($title) {
-        $board = \App\Boards::where('title', $title)->first();
+        $board = Boards::where('title', $title)->first();
 
         return response()->json($board);
     }
