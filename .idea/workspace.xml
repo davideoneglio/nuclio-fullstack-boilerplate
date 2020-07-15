@@ -26,29 +26,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9d76f22-2016-49da-8097-289c5ab745ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend-api/dbdata/3fad5ae1aceb.pid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/boards.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0a2e87ea-13a8-456f-b087-ffa255fb35c9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0a2e87ea-13a8-456f-b087-ffa255fb35c9/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/initialBoardsContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-api/app/Http/Controllers/BoardsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/BoardsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-api/app/Models/Boards.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Models/Boards.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/dbdata/general.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/general.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/ib_buffer_pool" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/ib_logfile0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/ibdata1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/ibtmp1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/users.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/users.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-api/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/HomePage/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/HomePage/HomePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/Lists/Lists.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/Lists/Lists.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/initialBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/initialBoard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm/LoginForm.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/Navbar/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/Navbar/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/boards.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/boards.json" afterDir="false" />
     </list>
     <list id="9cbe5db4-7714-457e-b510-5e965a8b70e0" name="2o commit JMF" comment="2o commit JMF" />
     <option name="SHOW_DIALOG" value="false" />
@@ -219,16 +203,16 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend-api/resources/views/emails" />
-      <recent name="$PROJECT_DIR$/backend-api/resources/views" />
-      <recent name="$PROJECT_DIR$/backend-api/app" />
-      <recent name="$PROJECT_DIR$/frontend-app/src/Components/SignupPage/images" />
-      <recent name="$PROJECT_DIR$/backend-api/migrationsSQL" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend-api/app/Http/Controllers" />
       <recent name="$PROJECT_DIR$/backend-api/app/Http" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend-app/src/Components/Navbar" />
+      <recent name="$PROJECT_DIR$/frontend-app/src/Components/LoginForm" />
+      <recent name="$PROJECT_DIR$/backend-api/resources/views/emails" />
+      <recent name="$PROJECT_DIR$/backend-api/resources/views" />
+      <recent name="$PROJECT_DIR$/backend-api/app" />
     </key>
   </component>
   <component name="RunManager">
@@ -302,7 +286,7 @@
       <workItem from="1594670094655" duration="2752000" />
       <workItem from="1594809268856" duration="505000" />
       <workItem from="1594811313974" duration="412000" />
-      <workItem from="1594830190982" duration="679000" />
+      <workItem from="1594830190982" duration="4414000" />
     </task>
     <task id="LOCAL-00001" summary="1r commit JMF">
       <created>1593192228867</created>
@@ -367,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594401307989</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Sprint 2 - commit JMF - miercoles 15 julio">
+      <created>1594831186123</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1594831186123</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +395,8 @@
     <MESSAGE value="Auth controller - commit JMF" />
     <MESSAGE value="Sprint 2 - commit JMF" />
     <MESSAGE value="Sprint 2 - commit JMF - miercoles 8 julio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sprint 2 - commit JMF - miercoles 8 julio" />
+    <MESSAGE value="Sprint 2 - commit JMF - miercoles 15 julio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sprint 2 - commit JMF - miercoles 15 julio" />
   </component>
   <component name="WindowStateProjectService">
     <state x="611" y="304" key="#Notifications" timestamp="1593193342960">
@@ -423,10 +415,10 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="320" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.822@0.23.1440.822" timestamp="1594670817099" />
-    <state x="752" y="243" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594134632793">
+    <state x="752" y="243" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594832405261">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="752" y="243" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.822@0.23.1440.822" timestamp="1594134632793" />
+    <state x="752" y="243" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.822@0.23.1440.822" timestamp="1594832405261" />
     <state x="529" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1593624683749">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
@@ -448,19 +440,19 @@
     </state>
     <state x="458" y="196" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.822@0.23.1440.822" timestamp="1593624816760" />
     <state x="458" y="196" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.823@0.23.1440.823" timestamp="1593631263376" />
-    <state x="308" y="23" key="CommitChangelistDialog2" timestamp="1594401307721">
+    <state x="308" y="23" key="CommitChangelistDialog2" timestamp="1594831179231">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="308" y="23" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1594401307721" />
+    <state x="308" y="23" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1594831179231" />
     <state x="308" y="23" key="CommitChangelistDialog2/0.23.1440.823@0.23.1440.823" timestamp="1593631577816" />
     <state x="474" y="353" key="ComposerInitDialogKey" timestamp="1594061895982">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="474" y="353" key="ComposerInitDialogKey/0.23.1440.822@0.23.1440.822" timestamp="1594061895982" />
-    <state x="174" y="94" key="DiffContextDialog" timestamp="1594401246664">
+    <state x="174" y="94" key="DiffContextDialog" timestamp="1594831954683">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="174" y="94" key="DiffContextDialog/0.23.1440.822@0.23.1440.822" timestamp="1594401246664" />
+    <state x="174" y="94" key="DiffContextDialog/0.23.1440.822@0.23.1440.822" timestamp="1594831954683" />
     <state width="468" height="212" key="GridCell.Tab.0.bottom" timestamp="1594670668958">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
@@ -481,14 +473,14 @@
     </state>
     <state width="468" height="212" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1594670668958" />
     <state width="958" height="212" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1593707912655" />
-    <state x="241" y="60" key="MergeDialog" timestamp="1594226453208">
+    <state x="241" y="60" key="MergeDialog" timestamp="1594832105660">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="241" y="60" key="MergeDialog/0.23.1440.822@0.23.1440.822" timestamp="1594226453208" />
-    <state x="361" y="202" key="MultipleFileMergeDialog" timestamp="1594226453250">
+    <state x="241" y="60" key="MergeDialog/0.23.1440.822@0.23.1440.822" timestamp="1594832105660" />
+    <state x="361" y="202" key="MultipleFileMergeDialog" timestamp="1594832105685">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="361" y="202" key="MultipleFileMergeDialog/0.23.1440.822@0.23.1440.822" timestamp="1594226453250" />
+    <state x="361" y="202" key="MultipleFileMergeDialog/0.23.1440.822@0.23.1440.822" timestamp="1594832105685" />
     <state x="352" y="167" key="NewPhpClassDialog" timestamp="1594232636446">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
@@ -497,10 +489,10 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="573" y="355" key="VCS.ChangelistChooser/0.23.1440.822@0.23.1440.822" timestamp="1593194314852" />
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1594401309632">
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1594831194294">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1594401309632" />
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1594831194294" />
     <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.23.1440.823@0.23.1440.823" timestamp="1593631583758" />
     <state x="517" y="318" width="346" height="232" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1594058990366">
       <screen x="0" y="23" width="1440" height="822" />
@@ -523,14 +515,14 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="0" y="123" width="1123" height="580" key="dock-window-1/0.23.1440.822@0.23.1440.822" timestamp="1593193795278" />
-    <state x="438" y="154" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594401221156">
+    <state x="438" y="154" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594831956066">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="438" y="154" key="git4idea.branch.GitSmartOperationDialog/0.23.1440.822@0.23.1440.822" timestamp="1594401221156" />
-    <state x="297" y="133" width="670" height="676" key="search.everywhere.popup" timestamp="1594060301413">
+    <state x="438" y="154" key="git4idea.branch.GitSmartOperationDialog/0.23.1440.822@0.23.1440.822" timestamp="1594831956066" />
+    <state x="297" y="133" width="670" height="676" key="search.everywhere.popup" timestamp="1594832793982">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="297" y="133" width="670" height="676" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1594060301413" />
+    <state x="297" y="133" width="670" height="676" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1594832793982" />
     <state x="190" y="171" width="670" height="677" key="search.everywhere.popup/0.23.1440.823@0.23.1440.823" timestamp="1593630626603" />
     <state x="190" y="171" width="670" height="679" key="search.everywhere.popup/0.23.1440.825@0.23.1440.825" timestamp="1593710003418" />
   </component>

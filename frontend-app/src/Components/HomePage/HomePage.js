@@ -4,6 +4,7 @@ import HomePageMenu from "./Home PageMenu/HomePageMenu";
 import Teams from "./Teams/Teams";
 import RecentlyViews from "./RecentlyViews/RecentlyViews";
 import PersonalBoards from "./PersonalBoards/PersonalBoards";
+import Navbar from "../Navbar/Navbar";
 
 const HomePage = props => {
 
@@ -22,16 +23,20 @@ const HomePage = props => {
     }, [])
 
     return(
-        <div className={"container home-page"}>
-            <div className={"home-page-left"}>
-                <HomePageMenu/>
-                <Teams/>
-            </div>
-            <div className={"home-page-right"}>
-                { recentlyBoards && <RecentlyViews recentlyBoards={recentlyBoards}/>}
-                { ownerBoards && <PersonalBoards personalBoards={ownerBoards}/>}
+        <div>
+            <Navbar />
+            <div className={"container home-page"}>
+                <div className={"home-page-left"}>
+                    <HomePageMenu/>
+                    <Teams/>
+                </div>
+                <div className={"home-page-right"}>
+                    { recentlyBoards && <RecentlyViews recentlyBoards={recentlyBoards}/>}
+                    { ownerBoards && <PersonalBoards personalBoards={ownerBoards}/>}
+                </div>
             </div>
         </div>
+
     )
 }
 
