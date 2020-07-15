@@ -26,6 +26,7 @@ const Lists = ({title, cards, listId, index}) => {
 
         </Draggable>
     );
+
 };
 
 export default Lists;

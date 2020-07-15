@@ -1,0 +1,14 @@
+{
+  "title": "list 1",
+  "id": 1,
+  "cards": [
+    {
+      "id": 1,
+      "text": "1r board"
+    },
+    {
+      "id": 2,
+      "text": "segundo board"
+    }
+  ]
+}

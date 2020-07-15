@@ -26,14 +26,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9d76f22-2016-49da-8097-289c5ab745ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend-api/dbdata/3fad5ae1aceb.pid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/boards.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0a2e87ea-13a8-456f-b087-ffa255fb35c9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0a2e87ea-13a8-456f-b087-ffa255fb35c9/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/app/Http/Controllers/BoardsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/BoardsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/app/Models/Boards.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Models/Boards.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/general.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/general.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/ib_buffer_pool" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/ib_logfile0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/ibdata1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/ibtmp1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/users.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/users.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/PrivateRoute/privateRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/PrivateRoute/privateRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/SignupPage/signuppage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/SignupPage/signuppage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/Lists/Lists.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/Lists/Lists.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/initialBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/InitialBoard/initialBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm/LoginForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/Navbar/Navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/Navbar/Navbar.js" afterDir="false" />
     </list>
     <list id="9cbe5db4-7714-457e-b510-5e965a8b70e0" name="2o commit JMF" comment="2o commit JMF" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +78,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="sprint1-merge" />
+        <entry key="$PROJECT_DIR$" value="pepe/sprint1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -188,6 +203,7 @@
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -283,6 +299,10 @@
       <workItem from="1594399018021" duration="2545000" />
       <workItem from="1594406663133" duration="528000" />
       <workItem from="1594663181596" duration="4442000" />
+      <workItem from="1594670094655" duration="2752000" />
+      <workItem from="1594809268856" duration="505000" />
+      <workItem from="1594811313974" duration="412000" />
+      <workItem from="1594830190982" duration="679000" />
     </task>
     <task id="LOCAL-00001" summary="1r commit JMF">
       <created>1593192228867</created>
@@ -399,10 +419,10 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="426" y="164" key="#backend-api.db:_Compose_Deployment/0.23.1440.822@0.23.1440.822" timestamp="1592419692554" />
-    <state x="320" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594663574825">
+    <state x="320" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594670817099">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="320" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.822@0.23.1440.822" timestamp="1594663574825" />
+    <state x="320" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.822@0.23.1440.822" timestamp="1594670817099" />
     <state x="752" y="243" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594134632793">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
@@ -441,25 +461,25 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="174" y="94" key="DiffContextDialog/0.23.1440.822@0.23.1440.822" timestamp="1594401246664" />
-    <state width="1398" height="212" key="GridCell.Tab.0.bottom" timestamp="1594238518569">
+    <state width="468" height="212" key="GridCell.Tab.0.bottom" timestamp="1594670668958">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state width="1398" height="212" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1594238518569" />
+    <state width="468" height="212" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1594670668958" />
     <state width="958" height="212" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1593707912655" />
-    <state width="1398" height="212" key="GridCell.Tab.0.center" timestamp="1594238518567">
+    <state width="468" height="212" key="GridCell.Tab.0.center" timestamp="1594670668958">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state width="1398" height="212" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1594238518567" />
+    <state width="468" height="212" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1594670668957" />
     <state width="958" height="212" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1593707912654" />
-    <state width="1398" height="212" key="GridCell.Tab.0.left" timestamp="1594238518567">
+    <state width="468" height="212" key="GridCell.Tab.0.left" timestamp="1594670668957">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state width="1398" height="212" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1594238518567" />
+    <state width="468" height="212" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1594670668957" />
     <state width="958" height="212" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1593707912652" />
-    <state width="1398" height="212" key="GridCell.Tab.0.right" timestamp="1594238518568">
+    <state width="468" height="212" key="GridCell.Tab.0.right" timestamp="1594670668958">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state width="1398" height="212" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1594238518568" />
+    <state width="468" height="212" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1594670668958" />
     <state width="958" height="212" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1593707912655" />
     <state x="241" y="60" key="MergeDialog" timestamp="1594226453208">
       <screen x="0" y="23" width="1440" height="822" />

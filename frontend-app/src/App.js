@@ -3,9 +3,9 @@ import './App.css';
 import LandingPage from "./Components/LandingPage/LandingPage";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Signup from "./Components/SignupPage/signuppage";
-import Navbar from "./Components/Navbar"
+import Navbar from "./Components/Navbar/Navbar"
 import HomePage from "./Components/HomePage/HomePage";
-import LoginForm from "./Components/LoginForm";
+import LoginForm from "./Components/LoginForm/LoginForm";
 import initialBoard from "./Components/InitialBoard/initialBoard";
 import PrivateRoute from "./Components/PrivateRoute/privateRoute";
 
@@ -19,6 +19,7 @@ function App() {
                 <Route exact path="/signup" render={props => <Signup {...props}/>}/>
                 <PrivateRoute exact path="/home" component={props => <HomePage {...props}/>}/>
                 <Route exact path="/boards" component={initialBoard} />
+                <Route exact path="/boards/:userId/:boardId" component={initialBoard} />
                 <Route exact path="/login"><LoginForm/></Route>
             </Switch>
         </div>

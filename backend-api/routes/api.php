@@ -37,12 +37,17 @@ Route::post('/register','AuthController@register');
 
 Route::post('/login','AuthController@login');
 
+
+Route::middleware('auth:api')->get('/board', function (Request $request) {
+    return $request->board();
+});
+
 //Rutas de los boards
 Route::post('/boards/{title}', 'BoardsController@create');
 
 Route::get('/boards', 'BoardsController@findAll');
 
-Route::get('/boards/{title}', 'BoardsController@findByTitle');
+Route::get('/boards/{id}', 'BoardsController@findByTitle');
 
 Route::put('/boards/{title}', 'BoardsController@update');
 

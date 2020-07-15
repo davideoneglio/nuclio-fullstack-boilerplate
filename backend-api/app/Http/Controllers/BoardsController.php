@@ -20,8 +20,8 @@ class BoardsController extends Controller
         return response()->json($board);
     }
 
-    public function findByTitle($title) {
-        $board = Boards::where('title', $title)->first();
+    public function findById($id) {
+        $board = Boards::where('id', $id)->first();
 
         return response()->json($board);
     }
