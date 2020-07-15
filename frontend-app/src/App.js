@@ -8,6 +8,9 @@ import HomePage from "./Components/HomePage/HomePage";
 import LoginForm from "./Components/LoginForm/LoginForm";
 import initialBoard from "./Components/InitialBoard/initialBoard";
 import PrivateRoute from "./Components/PrivateRoute/privateRoute";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {Signup} from "./Components/SignupPage/signuppage";
+import InitialBoard from "./Components/InitialBoard/initialBoardsContainer";
 
 function App() {
   return (

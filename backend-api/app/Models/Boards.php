@@ -18,3 +18,6 @@ class Boards extends Model
 }
 
 // añadir timestamp para fazer o "recently accessed" das boards updat
+
+/* añadir timestamp para fazer o "recently accessed" das boards
+updat

@@ -73,6 +73,7 @@ const Signup = props => {
         }
     }
 
+
     return(
         <div className="root">
             <div className="display-image-left">

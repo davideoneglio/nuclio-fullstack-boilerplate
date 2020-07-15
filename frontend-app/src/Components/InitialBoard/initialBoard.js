@@ -29,37 +29,37 @@ const InitialBoard = (props) => {
         );
     };
 
-    useEffect(() => {
+useEffect(() => {
 
-        const url = 'http://localhost/api/boards/{id}';         /*utilizar ${id} com aspas com crase*/
+    const url = 'http://localhost/api/boards/{id}';         /*utilizar ${id} com aspas com crase*/
 
-        const options = {
-            method: 'GET',
-            headers: new Headers({
-                Accept: 'application/json',
-                'Access-Control-Allow-Headers':
-                    'Authorization',
-                'Content-Type': 'application/json',
-            }),
-            mode:'cors',
-        };
+    const options = {
+        method: 'GET',
+        headers: new Headers({
+            Accept: 'application/json',
+            'Access-Control-Allow-Headers':
+            'Authorization',
+            'Content-Type': 'application/json',
+        }),
+        mode:'cors',
+    };
 
-        fetch(url, options)
-            .then(response => {
-                if(response.status === 200) {
-                    return response.json();
-                }
-            })
-            .then(data => {
-                console.log(data);
+    fetch(url, options)
+        .then(response => {
+            if(response.status === 200) {
+                return response.json();
+            }
+        })
+        .then(data => {
+            console.log(data);
 
 
-            })
-            .catch(error => {
-                console.log('Hubo un problema con la petición! Error:' + error);
-            })
+        })
+        .catch(error => {
+            console.log('Hubo un problema con la petición! Error:' + error);
+        })
 
-    }, []);
+}, []);
 
 
 

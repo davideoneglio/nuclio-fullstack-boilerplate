@@ -42,11 +42,18 @@ Route::middleware('auth:api')->get('/board', function (Request $request) {
     return $request->board();
 });
 
+//Routas de los boards
+
+Route::middleware('auth:api')->get('/board', function (Request $request) {
+    return $request->board();
+});
+
 //Rutas de los boards
 Route::post('/boards/{title}', 'BoardsController@create');
 
 Route::get('/boards', 'BoardsController@findAll');
 
+Route::get('/boards/{id}', 'BoardsController@findById');
 Route::get('/boards/{id}', 'BoardsController@findByTitle');
 
 Route::put('/boards/{title}', 'BoardsController@update');
