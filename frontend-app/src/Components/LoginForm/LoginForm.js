@@ -67,7 +67,6 @@ const LoginForm = props => {
                     }
                     return res.json();
                 }).catch((error) => {
-                    debugger;
                 console.log(error);
             })
                 .then((resJson) => {

@@ -5,7 +5,7 @@ import { faTrello } from '@fortawesome/free-brands-svg-icons'
 
 const HomePageMenu = props => {
 
-    const menu = {"board": "Boards", "templates": "Templates", "home": "Home"};
+    const menu = {"board": "Board", "templates": "Templates", "home": "Home"};
 
     const activeMenuInitialState = {"board": true, "templates": false, "home": false}
     const [activeMenu, setActiveMenu] = useState(activeMenuInitialState);
