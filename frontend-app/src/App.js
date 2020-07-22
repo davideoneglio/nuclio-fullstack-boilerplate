@@ -7,7 +7,7 @@ import Navbar from "./Components/Navbar/Navbar"
 import HomePage from "./Components/HomePage/HomePage";
 import LoginForm from "./Components/LoginForm/LoginForm";
 import PrivateRoute from "./Components/PrivateRoute/privateRoute";
-import InitialBoard from "./Components/InitialBoard/initialBoardsContainer";
+import Boards from "./Components/Boards/Boards";
 
 function App() {
   return (
@@ -18,8 +18,7 @@ function App() {
                 <Route exact path="/" render={props => <LandingPage {...props}/>}/>
                 <Route exact path="/signup" render={props => <Signup {...props}/>}/>
                 <PrivateRoute exact path="/home" component={props => <HomePage {...props}/>}/>
-                <Route exact path="/boards" component={InitialBoard} />
-                <Route exact path="/boards/:userId/:boardId" component={InitialBoard} />
+                <Route exact path="/boards" component={props =>  <Boards {...props}
                 <Route exact path="/login"><LoginForm/></Route>
             </Switch>
         </div>
