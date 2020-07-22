@@ -18,7 +18,7 @@ function App() {
                 <Route exact path="/" render={props => <LandingPage {...props}/>}/>
                 <Route exact path="/signup" render={props => <Signup {...props}/>}/>
                 <PrivateRoute exact path="/home" component={props => <HomePage {...props}/>}/>
-                <Route exact path="/boards" component={props =>  <Boards {...props}
+                <Route exact path="/boards" component={props =>  <Boards {...props}/>} />
                 <Route exact path="/login"><LoginForm/></Route>
             </Switch>
         </div>
