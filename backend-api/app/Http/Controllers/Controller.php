@@ -12,8 +12,10 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    /*protected function getAuthenticatedUser() {
+    protected function getAuthenticatedUser() {
         return JWTAuth::parseToken()->authenticate();
-    }*/
+    }
+
+    //crear función nueva para gestionar los mensajes de error
 
 }

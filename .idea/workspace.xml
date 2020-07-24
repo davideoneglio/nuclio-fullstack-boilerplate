@@ -25,44 +25,40 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9d76f22-2016-49da-8097-289c5ab745ba" name="Default Changelist" comment="Sprint 2 - commit JMF - miercoles 15 julio">
-      <change afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/CardActivityController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/CardsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/ListsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/app/Models/BoardCard.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/app/Models/BoardList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/app/Models/CardActivity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/dbdata/5a0143988fa7.pid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/activity.frm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/activity.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/boards.frm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/boards.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/cards.frm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/cards.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/lists.frm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/lists.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/migrationsSQL/migrationsSQL-boards.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-api/mysql/my.cnf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+    <list default="true" id="d9d76f22-2016-49da-8097-289c5ab745ba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/app/Http/Controllers/BoardsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/BoardsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/app/Http/Controllers/CardActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/CardActivityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/app/Http/Controllers/CardsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/CardsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-api/app/Models/Boards.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Models/Board.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/app/Http/Controllers/ListsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/ListsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/app/Http/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Http/Controllers/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/app/Models/BoardCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Models/BoardCard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/dbdata/general.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/general.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/dbdata/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/ib_logfile0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/dbdata/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/ibdata1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/dbdata/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/ibtmp1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/activity.frm" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/activity.frm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/activity.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/activity.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/boards.frm" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/boards.frm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/boards.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/boards.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/cards.frm" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/cards.frm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/cards.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/cards.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/lists.frm" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/lists.frm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/lists.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/lists.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/users.frm" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/users.frm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/dbdata/laravel/users.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/laravel/users.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/dbdata/mysql/innodb_index_stats.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/mysql/innodb_index_stats.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/dbdata/mysql/innodb_table_stats.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/dbdata/mysql/innodb_table_stats.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/migrationsSQL/migrationsSQL-boards.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/migrationsSQL/migrationsSQL-boards.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-api/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/HomePage/Home PageMenu/HomePageMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/HomePage/Home PageMenu/HomePageMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/LoginForm/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend-api/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/PrivateRoute/privateRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/PrivateRoute/privateRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-app/src/Components/SignupPage/signuppage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-app/src/Components/SignupPage/signuppage.js" afterDir="false" />
     </list>
     <list id="9cbe5db4-7714-457e-b510-5e965a8b70e0" name="2o commit JMF" comment="2o commit JMF" />
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +217,7 @@
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend-api/app/Http/Controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -230,6 +226,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
@@ -245,7 +242,33 @@
       <recent name="$PROJECT_DIR$/backend-api/app/Http" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="User" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Docker.backend-api: Compose Deployment">
+    <configuration name="backend-api: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="backend-api/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="backend-api.app: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="app" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="backend-api/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="backend-api.db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings>
@@ -261,8 +284,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.backend-api.db: Compose Deployment" />
-        <item itemvalue="Docker.backend-api.db: Compose Deployment" />
+        <item itemvalue="Docker.backend-api: Compose Deployment" />
+        <item itemvalue="Docker.backend-api.app: Compose Deployment" />
         <item itemvalue="Docker.backend-api.db: Compose Deployment" />
         <item itemvalue="Docker.backend-api.db: Compose Deployment" />
         <item itemvalue="Docker.backend-api.db: Compose Deployment" />
@@ -319,7 +342,13 @@
       <workItem from="1594830190982" duration="4414000" />
       <workItem from="1594916738620" duration="10137000" />
       <workItem from="1594969914485" duration="678000" />
-      <workItem from="1594997549424" duration="4227000" />
+      <workItem from="1594997549424" duration="9462000" />
+      <workItem from="1595263213166" duration="4413000" />
+      <workItem from="1595415363272" duration="404000" />
+      <workItem from="1595434687013" duration="7605000" />
+      <workItem from="1595497791871" duration="795000" />
+      <workItem from="1595515597331" duration="10901000" />
+      <workItem from="1595584097776" duration="4644000" />
     </task>
     <task id="LOCAL-00001" summary="1r commit JMF">
       <created>1593192228867</created>
@@ -391,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594831186123</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="commit JMF - viernes 17 julio">
+      <created>1595004186853</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1595004186853</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +465,8 @@
     <MESSAGE value="Sprint 2 - commit JMF" />
     <MESSAGE value="Sprint 2 - commit JMF - miercoles 8 julio" />
     <MESSAGE value="Sprint 2 - commit JMF - miercoles 15 julio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sprint 2 - commit JMF - miercoles 15 julio" />
+    <MESSAGE value="commit JMF - viernes 17 julio" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit JMF - viernes 17 julio" />
   </component>
   <component name="WindowStateProjectService">
     <state x="611" y="304" key="#Notifications" timestamp="1593193342960">
@@ -440,10 +477,18 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="301" y="82" key="#Plugins/0.23.1440.822@0.23.1440.822" timestamp="1592586187722" />
+    <state x="406" y="164" key="#backend-api.app:_Compose_Deployment" timestamp="1595439890724">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="406" y="164" key="#backend-api.app:_Compose_Deployment/0.23.1440.823@0.23.1440.823" timestamp="1595439890724" />
     <state x="426" y="164" key="#backend-api.db:_Compose_Deployment" timestamp="1592419692554">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="426" y="164" key="#backend-api.db:_Compose_Deployment/0.23.1440.822@0.23.1440.822" timestamp="1592419692554" />
+    <state x="406" y="164" key="#backend-api:_Compose_Deployment" timestamp="1595439893921">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="406" y="164" key="#backend-api:_Compose_Deployment/0.23.1440.823@0.23.1440.823" timestamp="1595439893921" />
     <state x="320" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594841450568">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
@@ -468,16 +513,16 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="458" y="188" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.822@0.23.1440.822" timestamp="1593803770457" />
-    <state x="458" y="196" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594925153533">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="458" y="196" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595588568988">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state x="458" y="196" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.822@0.23.1440.822" timestamp="1594925153533" />
-    <state x="458" y="196" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.823@0.23.1440.823" timestamp="1593631263376" />
-    <state x="308" y="23" key="CommitChangelistDialog2" timestamp="1594926990312">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="458" y="196" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.823@0.23.1440.823" timestamp="1595588568988" />
+    <state x="308" y="23" key="CommitChangelistDialog2" timestamp="1595004179273">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state x="308" y="23" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1594926990312" />
-    <state x="308" y="23" key="CommitChangelistDialog2/0.23.1440.823@0.23.1440.823" timestamp="1593631577816" />
+    <state x="308" y="23" key="CommitChangelistDialog2/0.23.1440.823@0.23.1440.823" timestamp="1595004179273" />
     <state x="474" y="353" key="ComposerInitDialogKey" timestamp="1594061895982">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
@@ -486,25 +531,25 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="174" y="94" key="DiffContextDialog/0.23.1440.822@0.23.1440.822" timestamp="1594831954683" />
-    <state width="958" height="212" key="GridCell.Tab.0.bottom" timestamp="1594926995358">
+    <state width="958" height="212" key="GridCell.Tab.0.bottom" timestamp="1595006012110">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state width="958" height="212" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1594926995358" />
+    <state width="958" height="212" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1595006012110" />
     <state width="958" height="212" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1593707912655" />
-    <state width="958" height="212" key="GridCell.Tab.0.center" timestamp="1594926995357">
+    <state width="958" height="212" key="GridCell.Tab.0.center" timestamp="1595006012110">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state width="958" height="212" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1594926995357" />
+    <state width="958" height="212" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1595006012110" />
     <state width="958" height="212" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1593707912654" />
-    <state width="958" height="212" key="GridCell.Tab.0.left" timestamp="1594926995356">
+    <state width="958" height="212" key="GridCell.Tab.0.left" timestamp="1595006012109">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state width="958" height="212" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1594926995356" />
+    <state width="958" height="212" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1595006012109" />
     <state width="958" height="212" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1593707912652" />
-    <state width="958" height="212" key="GridCell.Tab.0.right" timestamp="1594926995358">
+    <state width="958" height="212" key="GridCell.Tab.0.right" timestamp="1595006012110">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state width="958" height="212" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1594926995358" />
+    <state width="958" height="212" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1595006012110" />
     <state width="958" height="212" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1593707912655" />
     <state x="241" y="60" key="MergeDialog" timestamp="1594832105660">
       <screen x="0" y="23" width="1440" height="822" />
@@ -518,19 +563,23 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="352" y="167" key="NewPhpClassDialog/0.23.1440.822@0.23.1440.822" timestamp="1594923215777" />
+    <state x="221" y="73" key="SettingsEditor" timestamp="1595497987731">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="221" y="73" key="SettingsEditor/0.23.1440.823@0.23.1440.823" timestamp="1595497987731" />
     <state x="573" y="355" key="VCS.ChangelistChooser" timestamp="1593194314852">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="573" y="355" key="VCS.ChangelistChooser/0.23.1440.822@0.23.1440.822" timestamp="1593194314852" />
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1594831194294">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1595004243670">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1594831194294" />
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.23.1440.823@0.23.1440.823" timestamp="1593631583758" />
-    <state x="517" y="318" width="346" height="232" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1594058990366">
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.23.1440.823@0.23.1440.823" timestamp="1595004243670" />
+    <state x="517" y="318" width="346" height="232" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1595005739103">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="517" y="318" width="346" height="232" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.23.1440.822@0.23.1440.822" timestamp="1594058990366" />
+    <state x="517" y="318" width="346" height="232" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.23.1440.822@0.23.1440.822" timestamp="1595005739103" />
     <state x="517" y="318" width="323" height="232" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.23.1440.823@0.23.1440.823" timestamp="1593630460349" />
     <state x="500" y="214" width="627" height="439" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1595001000489">
       <screen x="0" y="23" width="1440" height="822" />
@@ -552,11 +601,15 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="438" y="154" key="git4idea.branch.GitSmartOperationDialog/0.23.1440.822@0.23.1440.822" timestamp="1594831956066" />
-    <state x="297" y="133" width="670" height="676" key="search.everywhere.popup" timestamp="1594841313652">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="385" y="197" width="670" height="675" key="run.anything.popup" timestamp="1595438625553">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="385" y="197" width="670" height="675" key="run.anything.popup/0.23.1440.823@0.23.1440.823" timestamp="1595438625553" />
+    <state x="190" y="171" width="670" height="677" key="search.everywhere.popup" timestamp="1595498192859">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state x="297" y="133" width="670" height="676" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1594841313652" />
-    <state x="190" y="171" width="670" height="677" key="search.everywhere.popup/0.23.1440.823@0.23.1440.823" timestamp="1593630626603" />
+    <state x="190" y="171" width="670" height="677" key="search.everywhere.popup/0.23.1440.823@0.23.1440.823" timestamp="1595498192859" />
     <state x="190" y="171" width="670" height="679" key="search.everywhere.popup/0.23.1440.825@0.23.1440.825" timestamp="1593710003418" />
   </component>
 </project>

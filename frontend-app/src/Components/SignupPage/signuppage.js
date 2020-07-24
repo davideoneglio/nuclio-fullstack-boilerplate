@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useDebugValue, useState} from 'react';
 import './signuppage.css';
 import imageRight from '../../Components/SignupPage/images/Captura de pantalla 2020-07-03 a las 19.41.19.png'
 import imageLeft from '../../Components/SignupPage/images/Captura de pantalla 2020-07-03 a las 19.41.48.png'
@@ -15,7 +15,7 @@ const Signup = props => {
     };
 
     const [ data, setData ] = useState(initialState);
-    const [ errors, setErrors] = useState({email: false, password: false})
+    const [ errors, setErrors ] = useState({email: false, password: false})
 
     const history = useHistory();
 
@@ -42,6 +42,8 @@ const Signup = props => {
         setErrors({...errors, password:!regex.test(data.password)});
     };
 
+    console.log(errors);
+
     const handleOnClickSubmit = () => {
         validatePassword();
         if(!errors.password && !errors.email) {
@@ -62,17 +64,22 @@ const Signup = props => {
                     'Content-Type': 'application/json'
                 },
                 "body": JSON.stringify(data),
-            }).then(response => response.json()
-            ).then(response => {
-                localStorage.setItem('token', response.access_token);
-                history.push('/home');
-            }).catch(function(error) {
+            })
+                .then((response) => {
+                    if(!response.ok) {
+                        setErrors({...errors, response: errors});
+                    }
+                    return response.json()
+                }).then(response => {
+                    debugger;
+                    alert(response.error);
+                    localStorage.setItem('token', response.access_token);
+                    history.push('/home');
+            }).catch(function (error) {
                 console.log('Hubo un problema con la petición Fetch:' + error);
-                let displayErrors = setData(error);
             })
         }
     }
-
 
     return(
         <div className="root">
