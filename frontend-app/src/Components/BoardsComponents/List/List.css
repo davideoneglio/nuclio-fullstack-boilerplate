@@ -1,0 +1,8 @@
+.root {
+    width: 300px;
+    margin-left: 10px;
+    background-color: #EBECF0;
+    display: flex;
+    flex-direction: row;
+
+}
