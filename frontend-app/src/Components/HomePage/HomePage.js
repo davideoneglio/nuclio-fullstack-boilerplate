@@ -37,6 +37,7 @@ const HomePage = props => {
                 </div>
             </div>
         </div>
+
     )
 }
 

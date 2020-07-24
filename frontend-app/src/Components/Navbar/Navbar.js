@@ -1,50 +1,46 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './Navbar.css'
-import trellologo from "../../img/trello.jpg";
-import CreateModalIconPlus from "./CreateModalIconPlus";
-import CreateModalIconBell from "./CreateModalIconBell";
+import trellologo from '../../img/trellologo.png';
 
 const Navbar = props => {
 
-const [ showiconplus,setShowplus ] = useState(false);
-const [ showiconbell,setShowbell ] = useState(false);
-    const closeModalHandler = () => setShowbell (false);
+const {path} = props
 
 return (
 
-      <nav className="header-container-navbar">
-        <div className={"header-container-navbar"}>
-          <div className="left-container-navbar">
+    <header className="header-container">
+      <nav>
+        <div className="header-container">
+          <div className="left-container">
 
-            <button className={"button-container-navbar"}> <i className={"icon-list-bullet"}/> </button>
-            <button className={"button-container-navbar"} href="/home"> <i className="icon-home"/> </button>
-              <button className={"button-container-navbar"}> <i className="icon-trello" /> Tableros </button>
+            <button className="button-container-1"> <i className="icon-list-bullet"/> </button>
+            <button className="button-container-1"> <i className="icon-home" href="/"/> </button>
+              <button className="button-container-1"> <i className="icon-trello" /> Tableros </button>
           </div>
 
           <div>
-              <input  className="input-container-navbar" type="search" id="fname-search" name="icon-search"/>
-              <div className="search-container-navbar">
+              <input  className="input-container" type="search" id="fname-search" name="icon-search"/>
+              <div className="search-container">
               <i className="icon-search"/>
               </div>
           </div>
            <a href="/">
-              <div className="trello-img-logo-navbar">
+              <div className="trello-img-logo">
                   <img src={trellologo} alt="trello-logo"/>
               </div>
            </a>
 
-            <div className="right-container-navbar">
-                <button onClick={() => setShowplus (true)} className="button-container-navbar"> <i className="icon-plus"/> </button>
-                {showiconplus && <CreateModalIconPlus showiconplus={showiconplus} closeModalHandler={() => setShowplus(false)}/>}
-                <button onClick={() => setShowbell (true)} className="button-container-navbar" href="/"> <i className="icon-info-circled-alt"/> </button>
-                {showiconbell && <CreateModalIconBell showiconbell={showiconbell} closeModalHandler={() => setShowbell(false)}/>}
-                <button onClick={() => setShowbell (true)} className="button-container-bell" href="/"> <i className="icon-bell"/> </button>
-                {showiconbell && <CreateModalIconBell showiconbell={showiconbell} closeModalHandler={() => setShowbell(false)}/>}
-                <button className="button-container-navbar"> User ID </button>
-
+            <div className="right-container">
+                <button className="button-container-1"> <i className="icon-plus"/> </button>
+                <button className="button-container-bell" href="/"> <i className="icon-bell"/> </button>
+                <button className="button-container-1"> Tableros </button>
             </div>
+
         </div>
+
       </nav>
+    </header>
+
 );
 };
 export default Navbar;

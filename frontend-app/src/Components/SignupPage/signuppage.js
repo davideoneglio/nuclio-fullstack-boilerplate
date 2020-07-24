@@ -3,9 +3,10 @@ import './signuppage.css';
 import imageRight from '../../Components/SignupPage/images/Captura de pantalla 2020-07-03 a las 19.41.19.png'
 import imageLeft from '../../Components/SignupPage/images/Captura de pantalla 2020-07-03 a las 19.41.48.png'
 import {InputForm} from "./InputForm/inputform";
+import {useHistory} from 'react-router-dom';
 
 
-export const Signup = props => {
+const Signup = props => {
 
     const initialState = {
         email: "",
@@ -15,6 +16,8 @@ export const Signup = props => {
 
     const [ data, setData ] = useState(initialState);
     const [ errors, setErrors] = useState({email: false, password: false})
+
+    const history = useHistory();
 
     const isEnabled = data["email"].length > 0 && data["password"].length > 0 && data["name"].length > 0;
 
@@ -42,6 +45,15 @@ export const Signup = props => {
     const handleOnClickSubmit = () => {
         validatePassword();
         if(!errors.password && !errors.email) {
+            fetch("http://localhost/api/sendEmail",{
+                "method": "POST",
+                "mode": "cors",
+                "headers": {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                "body": JSON.stringify(data),
+            })
             fetch("http://localhost/api/register", {
                 "method": "POST",
                 "mode": "cors",
@@ -52,14 +64,15 @@ export const Signup = props => {
                 "body": JSON.stringify(data),
             }).then(response => response.json()
             ).then(response => {
-                return response
-                //history.push("/home") //¡falta declarar la ruta!
+                localStorage.setItem('token', response.access_token);
+                history.push('/home');
             }).catch(function(error) {
                 console.log('Hubo un problema con la petición Fetch:' + error);
                 let displayErrors = setData(error);
             })
         }
     }
+
 
     return(
         <div className="root">
@@ -78,7 +91,7 @@ export const Signup = props => {
                                 <div id="signup-password"
                                      className="quick-switch">
 
-                                    {errors.password ? <p className="input-error-message-password">La contraseña debe contener al menos 8 caracteres.</p> : undefined}
+                                    {errors.password ? <p className="input-error-message-password">La contraseña debe contener al menos 8 caracteres, una letra mayúscula y un número.</p> : undefined}
 
                                     <h1>Crea tu cuenta</h1>
 
@@ -184,4 +197,5 @@ export const Signup = props => {
     );
 };
 
+export default Signup;
 

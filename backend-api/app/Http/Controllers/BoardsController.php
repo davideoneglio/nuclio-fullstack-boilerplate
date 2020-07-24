@@ -4,44 +4,59 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Boards;
-use http\Client\Response;
+use App\Models\Board;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
 class BoardsController extends Controller
 {
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $data = $request->all();
 
-        $board = \App\Boards::create([
-            'title' => $data['title']
+        $user = $this->getAuthenticatedUser();
+
+        $board = Board::create([
+            'title' => $data['title'],
+            'user_id' => $user['id']
         ]);
 
-        return response()->json($board);
-    }
-
-    public function findByTitle($title) {
-        $board = \App\Boards::where('title', $title)->first();
+        //$user->boards()->save($board);
 
         return response()->json($board);
     }
 
-    public function findAll() {
-        $board = Boards::all();
+    public function findById($id)
+    {
+        $board = Board::where('id', $id)->first();
 
         return response()->json($board);
     }
 
-    public function update(Request $request, $title) {
-        $board = Boards::where('title', $title)->first();
-        $newData = $request->all();
-        $board->update($newData);
+    public function findAllBoardsForLoggedUser(Request $request)
+    {
+        $data = $request->all();
+
+        $boards = Board::where('user_id', $data['board_id'])->get();
+
+        return response()->json($boards);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $board = Board::where('id', $id)->first();
+
+        $dataFromTheBoardToUpdate = $request->all();
+
+        $board->update($dataFromTheBoardToUpdate);
 
         return response()->json($board);
     }
 
-    public function delete($title) {
-        $board = Boards::where('title', $title)->first();
+    public function delete($id)
+    {
+        $board = Board::where('id', $id)->first();
+
         $board->delete();
 
         return response()->json("Board deleted!");

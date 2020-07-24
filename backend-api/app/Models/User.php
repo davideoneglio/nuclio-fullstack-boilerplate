@@ -26,14 +26,18 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         'remember_token',
     ];
 
-
-    /*protected function users () {
-        return $this->hasMany(User::class);
+    //esta bien?
+    protected function boards()
+    {
+        return $this->hasMany(Board::class);
     }
 
-    protected function owner() {
+    //esta bien?
+    protected function owner()
+    {
         return $this->hasOne(User::class);
-    }*/
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

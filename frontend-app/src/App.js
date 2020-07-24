@@ -5,7 +5,9 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {Signup} from "./Components/SignupPage/signuppage";
 import Navbar from "./Components/Navbar/Navbar"
 import HomePage from "./Components/HomePage/HomePage";
-import initialBoard from "./Components/InitialBoard/initialBoard";
+import LoginForm from "./Components/LoginForm/LoginForm";
+import PrivateRoute from "./Components/PrivateRoute/privateRoute";
+import RenderBoard from "./Components/BoardsComponents/RenderBoard/RenderBoard";
 
 function App() {
   return (
@@ -15,9 +17,9 @@ function App() {
                 <Route exact path="/navbar" component={Navbar}/>
                 <Route exact path="/" render={props => <LandingPage {...props}/>}/>
                 <Route exact path="/signup" render={props => <Signup {...props}/>}/>
-                <Route exact path="/home" render={props => <HomePage {...props}/>}/>
-                <Route exact path="/boards" component={initialBoard} />
-
+                <PrivateRoute exact path="/home" component={props => <HomePage {...props}/>}/>
+                <Route exact path="/boards/:id" children={<RenderBoard />} />
+                <Route exact path="/login"><LoginForm/></Route>
             </Switch>
         </div>
       </Router>
