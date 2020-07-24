@@ -1,12 +1,13 @@
 FROM php:7.2-fpm
+# Imagen padre de la que partimos y a partir de la que crearemos los ficheros
 
-# Copy composer.lock and composer.json
+# Copy composer.lock and composer.json //estoy copiando los ficheros ya creados y me los metes en el directorio var dentro del contenedor
 COPY composer.lock composer.json /var/www/
 
-# Set working directory
+# Set working directory //cambiame de directorio dentro del contenedor y todos los comandos que te diré a partir de ahora van dentro de este contenedor
 WORKDIR /var/www
 
-# Install dependencies
+# Install dependencies //mi imagen necesita ciertas dependencias no las tiene instaladas, le pido que me instale todas estas librerias que voy a necesitar
 RUN apt-get update && apt-get install -y \
     build-essential \
     mariadb-client \
@@ -36,7 +37,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
-# Copy existing application directory contents
+# Copy existing application directory contents //copio toddo lo que hay dentro y lo traslado dentro del contenedor
 COPY . /var/www
 
 # Copy existing application directory permissions

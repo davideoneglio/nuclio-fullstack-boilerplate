@@ -3,10 +3,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewEmail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
@@ -16,15 +19,15 @@ class UsersController extends Controller
         $data = $request->all();
 
         $userValidator = Validator::make($data, [
-            'name' => ['required', 'string', 'max:191'],
-            'email' => ['required', 'email', 'max:255', 'unique:users_trello,email'],
-            'password' => ['required', 'max:255'],
+            'name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'email', 'max:100', 'unique:users_trello,email'],
+            'password' => ['required', 'max:100'],
         ]);
 
-        if(!$userValidator->validate()) {
+        if (!$userValidator->fails()) {
             $errors = $userValidator->errors()->getMessages();
             $code = Response::HTTP_NOT_ACCEPTABLE; //422
-            return response()->json(['error'=>$errors, 'code'=>$code], $code);
+            return response()->json(['error' => $errors, 'code' => $code], $code);
         }
 
         $user = User::create([
@@ -34,6 +37,17 @@ class UsersController extends Controller
         ]);
 
         return response()->json($user);
+
+    }
+
+    public function sendEmail(Request $request)
+    {
+
+        $data = $request->all();
+
+        Mail::to($data['email'])->send(new NewEmail());
+
+        return response()->json($data);
 
     }
 
@@ -49,6 +63,12 @@ class UsersController extends Controller
         $user = User::where('id', $id)->first();
 
         return response()->json($user);
+    }
+
+    //pendiente revisar - pepe 17 julio //gestionarlo desde frontend cargandome localstorage
+    public function logout() {
+        Auth::logout();
+        return redirect('/login');
     }
 
 }

@@ -4,46 +4,81 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Boards;
-use http\Client\Response;
+use App\Models\Board;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
 class BoardsController extends Controller
 {
-    public function create(Request $request) {
-        $data = $request->all();
+    public function create(Request $request)
+    {
+        $data = $request->only(["title"]);
 
-        $board = \App\Boards::create([
-            'title' => $data['title']
-        ]);
+        $user = $this->getAuthenticatedUser();
 
-        return response()->json($board);
-    }
+        $board = new Board($data);
 
-    public function findByTitle($title) {
-        $board = \App\Boards::where('title', $title)->first();
+        $user->boards()->save($board);
 
         return response()->json($board);
     }
 
-    public function findAll() {
-        $board = Boards::all();
+    public function findById($id)
+    {
+        $user = $this->getAuthenticatedUser();
 
-        return response()->json($board);
+        $board = Board::where('id', $id)->where("user_id", $user->id)->first();
+
+        if ($board === null) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "Board not accessible to this user"])->setStatusCode($code);
+        }else{
+            return response()->json($board);
+        }
     }
 
-    public function update(Request $request, $title) {
-        $board = Boards::where('title', $title)->first();
-        $newData = $request->all();
-        $board->update($newData);
+    public function findAllBoardsForLoggedUser()
+    {
+        $user = $this->getAuthenticatedUser();
 
-        return response()->json($board);
+        //que es esto?
+        $boards = $user->boards;
+
+        return response()->json($boards);
     }
 
-    public function delete($title) {
-        $board = Boards::where('title', $title)->first();
-        $board->delete();
+    public function update(Request $request, $id)
+    {
 
-        return response()->json("Board deleted!");
+        $user = $this->getAuthenticatedUser();
+
+        $board = Board::where('id', $id)->where("user_id", $user->id)->first();
+
+        if ($board === null) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "Acceso no permitido a este board"])->setStatusCode($code);
+        }else{
+            $dataFromTheBoardToUpdate = $request->all();
+
+            $board->update($dataFromTheBoardToUpdate);
+
+            return response()->json($board);
+        }
+    }
+
+    public function delete($id)
+    {
+        $user = $this->getAuthenticatedUser();
+
+        $board = Board::where('id', $id)->where("user_id", $user->id)->first();
+
+        if ($board === null) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "Board not accessible to this user"])->setStatusCode($code);
+        }else{
+            $board->delete();
+
+            return response()->json("Board deleted!");
+        }
     }
 }

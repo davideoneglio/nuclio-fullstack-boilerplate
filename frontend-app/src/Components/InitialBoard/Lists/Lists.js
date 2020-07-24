@@ -5,6 +5,8 @@ import ActionButton from "../actions/ActionButton";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 
 const Lists = ({title, cards, listId, index}) => {
+
+    console.log(cards);
     return (
         <Draggable draggableId={String(listId)} index={index}>
             {provided => (
@@ -26,6 +28,7 @@ const Lists = ({title, cards, listId, index}) => {
 
         </Draggable>
     );
+
 };
 
 export default Lists;
