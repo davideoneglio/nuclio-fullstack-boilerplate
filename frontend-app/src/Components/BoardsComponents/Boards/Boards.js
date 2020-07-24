@@ -7,7 +7,7 @@ import "./Boards.css";
 function Boards({ list }) {
 
     return (
-        <div className="root">
+        <div className="root3">
 
             {list.map((list) =>
                 <List id={list.id} title={list.title} cards={list.cards} />

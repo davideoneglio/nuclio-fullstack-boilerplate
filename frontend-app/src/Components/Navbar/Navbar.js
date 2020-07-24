@@ -8,25 +8,25 @@ const {path} = props
 
 return (
 
-    <header className="header-container">
+    <header className="header-container-navbar">
       <nav>
-        <div className="header-container">
-          <div className="left-container">
+        <div className="header-container-navbar">
+          <div className="left-container-navbar">
 
-            <button className="button-container-1"> <i className="icon-list-bullet"/> </button>
-            <button className="button-container-1"> <i className="icon-home" href="/"/> </button>
-              <button className="button-container-1"> <i className="icon-trello" /> Tableros </button>
+            <button className="button-container-1-navbar"> <i className="icon-list-bullet"/> </button>
+            <button className="button-container-1-navbar"> <i className="icon-home" href="/"/> </button>
+              <button className="button-container-1-navbar"> <i className="icon-trello" /> Tableros </button>
           </div>
 
           <div>
-              <input  className="input-container" type="search" id="fname-search" name="icon-search"/>
-              <div className="search-container">
-              <i className="icon-search"/>
+              <input  className="input-container-navbar" type="search" id="fname-search" name="icon-search"/>
+              <div className="search-container-navbar">
+              <i className="icon-search-navbar"/>
               </div>
           </div>
            <a href="/">
-              <div className="trello-img-logo">
-                  <img src={trellologo} alt="trello-logo"/>
+              <div className="trello-img-logo-navbar">
+                  <img src={trellologo} alt="trello-logo-navbar"/>
               </div>
            </a>
 
