@@ -5,7 +5,7 @@ import Title from "../Title/Title";
 import Card from "../Card/Card";
 import InputContainerCards from "../Input/InputContainerCards";
 
-function List({ title, cards, boardId }) {
+function List({ title, cards }) {
 
 
 /* hacer un fetch al backend para que devolva todos las cards de esta list */

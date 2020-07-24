@@ -4,7 +4,7 @@ import InputContainerList from "../Input/InputContainerLists";
 import "./Boards.css";
 
 
-function Boards({ list, id }) {
+function Boards({ list }) {
 
     return (
         <div className="root">

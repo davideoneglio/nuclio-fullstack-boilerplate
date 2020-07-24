@@ -2,6 +2,7 @@ import React from "react";
 import Boards from "../Boards/Boards";
 import data from "../boards.json";
 import { useParams } from "react-router-dom";
+import Navbar from "../../Navbar/Navbar";
 
 
 function RenderBoard () {
@@ -34,10 +35,12 @@ function RenderBoard () {
 
     return (
         <div>
-            {board.map((board) =>
-                <Boards {...board}/>
-            )}
-
+            <Navbar />
+            <div>
+                {board.map((board) =>
+                    <Boards {...board}/>
+                )}
+            </div>
         </div>
 
     );
