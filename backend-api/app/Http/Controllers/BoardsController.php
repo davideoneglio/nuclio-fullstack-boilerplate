@@ -46,5 +46,4 @@ class BoardsController extends Controller
 
         return response()->json("Board deleted!");
     }
-
 }

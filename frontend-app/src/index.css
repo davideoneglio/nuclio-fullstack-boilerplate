@@ -1,5 +1,6 @@
 
-@import "./Font-icon/css/fontello.css";
+@import "./Components/Navbar/Font-icon/css/fontello.css";
+
 
 body {
   margin: 0;

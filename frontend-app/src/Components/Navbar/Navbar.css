@@ -1,17 +1,19 @@
-.header-container {
+.header-container-navbar {
     background-color: #0e76c1;
     display: flex;
+    align-items: flex-start;
     padding: 10px;
     justify-content: space-between;
 
+
 }
-.left-container {
+.left-container-navbar {
     display: flex;
     justify-content: flex-start;
     flex-grow: 1;
 }
 
-.right-container {
+.right-container-navbar {
     display: flex;
     justify-content: flex-end;
     flex-grow: 1;
@@ -19,7 +21,7 @@
     right:10px;
 
 }
-.button-container-1 {
+.button-container-navbar {
     border-radius: 5px;
     border: 0;
     cursor: pointer;
@@ -61,7 +63,7 @@
 
 }
 
-.input-container {
+.input-container-navbar {
     background-color: hsla(0,0%,100%,.3);
     border-radius: 3px;
     border: none;
@@ -82,13 +84,13 @@
 
 }
 
-.trello-img-logo {
+.trello-img-logo-navbar {
     position: absolute;
-    top: 5px;
+    top: 10px;
     left: 50%;
 }
 
-.search-container {
+.search-container-navbar {
     border-radius: 3px;
     border-bottom-color: white;
     display: inline-block;
