@@ -1,0 +1,82 @@
+{
+  "board": [
+    {
+      "id": "1",
+      "title": "Board 1",
+      "list": [
+        {
+          "id": "1",
+          "title": "List 1 de la board 1",
+          "cards": [
+            {
+              "id": "1",
+              "content": "Card 1 - list 1"
+            },
+            {
+              "id": "2",
+              "content": "Card 2 - list 1"
+            },
+            {
+              "id": "3",
+              "content": "Card 3 - list 1"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "title": "List 2 de la board 1",
+          "cards": [
+            {
+              "id": "1",
+              "content": "Card 1 - list 2"
+            },
+            {
+              "id": "2",
+              "content": "Card 2 - list 2"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "title": "List 3 de la board 1",
+          "cards": [
+            {
+              "id": "1",
+              "content": "Card 1 - list 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Board 2",
+      "list": [
+        {
+          "id": "1",
+          "title": "List 1 de la board 2",
+          "cards": [
+            {
+              "id": "1",
+              "content": "Card 1 de la list 1 de la board 2"
+            },
+            {
+              "id": "2",
+              "content": "Card 2 list 1 board 2"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "title": "List 2 de la board 2",
+          "cards": [
+            {
+              "id": "1",
+              "content": "Card 1 list 2 board 2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
