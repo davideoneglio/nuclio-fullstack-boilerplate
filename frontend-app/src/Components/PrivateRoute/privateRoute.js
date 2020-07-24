@@ -13,7 +13,7 @@ const PrivateRoute = (props) => {
         <Route {...rest} render={props => (
             (token !== "undefined") && (token !== null) && (token !== undefined) ?
                 <Component {...props} />
-                : <Redirect to="/login" />
+                : <Redirect to="/" />
         )} />
     );
 };

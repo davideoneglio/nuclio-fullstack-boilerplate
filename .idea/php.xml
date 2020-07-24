@@ -87,12 +87,31 @@
       <path value="$PROJECT_DIR$/backend-api/vendor/phpspec/prophecy" />
       <path value="$PROJECT_DIR$/backend-api/vendor/fideloper/proxy" />
       <path value="$PROJECT_DIR$/backend-api/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/asm89/stack-cors" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/fruitcake/laravel-cors" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/tymon/jwt-auth" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/aws/aws-sdk-php" />
+      <path value="$PROJECT_DIR$/backend-api/vendor/symfony/error-handler" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings load_method="CUSTOM_LOADER" custom_loader_path="$PROJECT_DIR$/backend-api/vendor/autoload.php" />
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/backend-api/vendor/autoload.php" />
     </phpunit_settings>
   </component>
 </project>

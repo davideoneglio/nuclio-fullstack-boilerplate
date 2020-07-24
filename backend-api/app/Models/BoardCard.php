@@ -11,8 +11,8 @@ class BoardCard extends Model
     protected $table = 'cards';
 
     protected $fillable = [
-        'lists_id',
-        'title',
+        'list_id',
+        'description',
         'ordering'
     ];
 

@@ -27,16 +27,11 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
     ];
 
     //esta bien?
-    protected function boards()
+    public function boards()
     {
         return $this->hasMany(Board::class);
     }
 
-    //esta bien?
-    protected function owner()
-    {
-        return $this->hasOne(User::class);
-    }
 
     public function getJWTIdentifier()
     {

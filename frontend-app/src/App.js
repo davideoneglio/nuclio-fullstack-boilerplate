@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import LandingPage from "./Components/LandingPage/LandingPage";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import {Signup} from "./Components/SignupPage/signuppage";
 import Navbar from "./Components/Navbar/Navbar"
+import Signup from "./Components/SignupPage/signuppage";
 import HomePage from "./Components/HomePage/HomePage";
 import LoginForm from "./Components/LoginForm/LoginForm";
 import PrivateRoute from "./Components/PrivateRoute/privateRoute";

@@ -3,56 +3,86 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Board;
 use App\Models\BoardList;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
 class ListsController extends Controller
 {
     public function create(Request $request)
     {
-        $data = $request->all();
+        $data = $request->only(["title", "ordering", "board_id"]);
 
-        $list = new BoardList([
-            'title' => $data['title'],
-            'board_id' => $data['board_id'],
-            'ordering' => $data['ordering']
-        ]);
+        $board = Board::find($data["board_id"]);
 
-        return response()->json($list);
+        if ($board === null) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "Board does not exist"])->setStatusCode($code);
+        }else{
+            $list = new BoardList($data);
+
+            $list->save();
+
+            return response()->json($list);
+        }
     }
 
     public function findById($id)
     {
         $list = BoardList::where('id', $id)->first();
 
+        if($list === null) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "List does not exist"])->setStatusCode($code);
+        }
         return response()->json($list);
     }
 
-    //REVISAR SI TIENE SENTIDO
-    public function findByBoardId(Request $request)
+    public function findAllListsForBoard($board_id)
     {
-        $data = $request->all();
+        //falta hacer que solo se puedan encontrar las lists de el user loggeado
+        $user = $this->getAuthenticatedUser();
 
-        $lists = BoardList::where('board_id', $data['board_id'])->get();
+        $list = BoardList::where('board_id', $board_id)->get();
 
-        return response()->json($lists);
+        if(count($list) === 0) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "This board has no lists"])->setStatusCode($code);
+        }else{
+            return response()->json($list);
+        }
     }
 
+    //falta hacer la asociación al usuario
     public function update(Request $request, $id)
     {
-        $list = BoardList::where('id', $id)->first();
+        //$data = $request->only(["title", "ordering", "board_id"]);
 
-        $dataFromTheBoardListToUpdate = $request->all();
+        //$board = Board::find($data["board_id"]);
 
-        $list->update($dataFromTheBoardListToUpdate);
+        $list = BoardList::where('id', $id)/*->where('board_id', $board->id)*/->first();
 
-        return response()->json($list);
+        if ($list === null) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "List does not exist"])->setStatusCode($code);
+        }else{
+            $dataFromTheListToUpdate = $request->all();
+
+            $list->update($dataFromTheListToUpdate);
+
+            return response()->json($list);
+        }
     }
-
+    //asociar las listas al user
     public function delete($id)
     {
         $list = BoardList::where('id', $id)->first();
 
+        if($list === null) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "List does not exist"])->setStatusCode($code);
+        }
         $list->delete();
 
         return response()->json("List deleted!");

@@ -23,9 +23,9 @@ Route::group(['middleware' => 'auth.jwt'], function (){
 
     Route::post('/user', 'UsersController@create');
 
-    Route::get('/users', 'UsersController@findAll');
+    Route::get('/users', 'UsersController@findAll'); //tiene sentido que necesite el token?
 
-    Route::get('/user/{id}', 'UsersController@findById');
+    Route::get('/user/{id}', 'UsersController@findById'); //tiene sentido que necesite el token?
 
     Route::post('/refresh', 'AuthController@refresh');
 
@@ -37,11 +37,11 @@ Route::group(['middleware' => 'auth.jwt'], function (){
 
     Route::get('/board/{id}', 'BoardsController@findById');
 
-    Route::get('board/user/{user_id}', 'BoardsController@findAllBoardsForLoggedUser');
+    Route::get('/board', 'BoardsController@findAllBoardsForLoggedUser');
 
-    Route::put('board/{id}', 'BoardsController@update');
+    Route::put('/board/{id}', 'BoardsController@update');
 
-    Route::delete('board/{id}', 'BoardsController@delete');
+    Route::delete('/board/{id}', 'BoardsController@delete');
 
     //RUTAS DE LAS LISTAS
 
@@ -49,11 +49,11 @@ Route::group(['middleware' => 'auth.jwt'], function (){
 
     Route::get('/list/{id}', 'ListsController@findById');
 
-    Route::get('list/board/{board_id}', 'ListsController@findByBoardId');
+    Route::get('/list/board/{board_id}', 'ListsController@findAllListsForBoard');
 
-    Route::put('list/{id}', 'ListsController@update');
+    Route::put('/list/{id}', 'ListsController@update');
 
-    Route::delete('list/{id}', 'ListsController@delete');
+    Route::delete('/list/{id}', 'ListsController@delete');
 
     //RUTAS DE LAS CARDS
 
@@ -61,11 +61,11 @@ Route::group(['middleware' => 'auth.jwt'], function (){
 
     Route::get('/card/{id}', 'CardsController@findById');
 
-    Route::get('card/list/{list_id}', 'CardsController@findByListId');
+    Route::get('/card/list/{list_id}', 'CardsController@findAllCardsForList');
 
-    Route::put('card/{id}', 'CardsController@update');
+    Route::put('/card/{id}', 'CardsController@update');
 
-    Route::delete('card/{id}', 'CardsController@delete');
+    Route::delete('/card/{id}', 'CardsController@delete');
 
     //RUTAS DE LAS ACTIVITIES DE LA CARD
 
@@ -73,11 +73,18 @@ Route::group(['middleware' => 'auth.jwt'], function (){
 
     Route::get('/card_activity/{id}', 'CardActivityController@findById');
 
-    Route::get('card_activity/card/{card_id}', 'CardActivityController@findByCardId');
+    Route::get('/card_activity/card/{card_id}', 'CardActivityController@findByCardId');
 
-    Route::put('card_activity/{id}', 'CardActivityController@update');
+    Route::put('/card_activity/{id}', 'CardActivityController@update');
 
-    Route::delete('card_activity/{id}', 'CardActivityController@delete');
+    Route::delete('/card_activity/{id}', 'CardActivityController@delete');
+
+    //LOGOUT - pendiente revisar - pepe 17 julio
+    Route::get('/logout', function() {
+        auth()->logout();
+
+        return "You are now logged out";
+    });
 
 
 });

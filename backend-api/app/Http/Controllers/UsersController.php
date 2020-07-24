@@ -7,6 +7,7 @@ use App\Mail\NewEmail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -18,9 +19,9 @@ class UsersController extends Controller
         $data = $request->all();
 
         $userValidator = Validator::make($data, [
-            'name' => ['required', 'string', 'max:191'],
-            'email' => ['required', 'email', 'max:255', 'unique:users_trello,email'],
-            'password' => ['required', 'max:255'],
+            'name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'email', 'max:100', 'unique:users_trello,email'],
+            'password' => ['required', 'max:100'],
         ]);
 
         if (!$userValidator->fails()) {
@@ -62,6 +63,12 @@ class UsersController extends Controller
         $user = User::where('id', $id)->first();
 
         return response()->json($user);
+    }
+
+    //pendiente revisar - pepe 17 julio //gestionarlo desde frontend cargandome localstorage
+    public function logout() {
+        Auth::logout();
+        return redirect('/login');
     }
 
 }

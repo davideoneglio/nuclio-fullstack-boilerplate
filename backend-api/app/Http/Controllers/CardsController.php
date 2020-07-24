@@ -5,54 +5,83 @@ namespace App\Http\Controllers;
 
 
 use App\Models\BoardCard;
+use App\Models\BoardList;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CardsController extends Controller
 {
+    //faltaría hacer que solo se pudieran crear cards en las listas del usuario
     public function create(Request $request)
     {
-        $data = $request->all();
+        $data = $request->only(["description", "ordering", "list_id"]);
 
-        $card = new BoardCard([
-            'list_id' => $data['list_id'],
-            'description' => $data['description'],
-            'ordering' => $data['ordering']
-        ]);
+        $list = BoardList::find($data["list_id"]);
 
-        return response()->json($card);
+        if ($list === null) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "List does not exist"])->setStatusCode($code);
+        }else{
+            $card = new BoardCard($data);
+
+            $card->save();
+
+            return response()->json($card);
+        }
     }
 
     public function findById($id)
     {
         $card = BoardCard::where('id', $id)->first();
 
+        if($card === null) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "Card does not exist"])->setStatusCode($code);
+        }
         return response()->json($card);
     }
 
-    public function findByListId(Request $request)
+    public function findAllCardsForList($list_id)
     {
-        $data = $request->all();
+        //falta hacer que solo se puedan encontrar las cards de el user loggeado
 
-        $cards = BoardCard::where('list_id', $data['list_id'])->get();
+        $card = BoardCard::where('list_id', $list_id)->get();
 
-        return response()->json($cards);
+        if(count($card) === 0) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "This list has no cards"])->setStatusCode($code);
+        }else{
+            return response()->json($card);
+        }
     }
 
+    //falta hacer la asociación
     public function update(Request $request, $id)
     {
         $card = BoardCard::where('id', $id)->first();
 
-        $dataFromTheBoardCardToUpdate = $request->all();
+        if($card === null) {
+            $code = Response::HTTP_NOT_FOUND;
 
-        $card->update($dataFromTheBoardCardToUpdate);
+            return response()->json(["error" => "Card does not exist"])->setStatusCode($code);
+        }else{
+            $dataFromTheBoardCardToUpdate = $request->all();
 
-        return response()->json($card);
+            $card->update($dataFromTheBoardCardToUpdate);
+
+            return response()->json($card);
+        }
     }
 
+    //asociar las cards al user
     public function delete($id)
     {
         $card = BoardCard::where('id', $id)->first();
 
+        if($card === null) {
+            $code = Response::HTTP_NOT_FOUND;
+            return response()->json(["error" => "Card does not exist"])->setStatusCode($code);
+        }
         $card->delete();
 
         return response()->json("Card deleted!");

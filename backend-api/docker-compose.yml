@@ -1,7 +1,7 @@
 version: '3'
 services:
 
-  #PHP Service
+  #PHP Service // no cogemos una imagen pública sino que la creamos nosotros a partir del directorio Dockerfile
   app:
     build:
       context: .

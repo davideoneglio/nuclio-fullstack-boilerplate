@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -11,11 +12,17 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
+        try {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password)
+            ]);
+        } catch (\Exception $e) {
+            if($e instanceof QueryException) {
+                return response()->json(["error" => "el usuario ya existe"])->setStatusCode(500);
+            } //gestionar el error en frontend
+        }
         //auth es un guard proporcionado por Laravel que llamará al provider que hemos registrado antes.
         $token = auth()->login($user); // al llamar a la función login() generamos un nuevo token
         //este token se guarda en la cache de Laravel.
@@ -30,7 +37,7 @@ class AuthController extends Controller
         }
         return $this->respondWithToken($token);
     }
-    public function getAuthenticatedUser(Request $request)
+    public function getAuthenticatedUser(/*Request $request*/)
     {
         return response()->json(auth()->user());
     }
@@ -53,7 +60,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            //'expires_in' => auth()->factory()->getTTL() * 60
+            //'expires_in' => auth()->factory()->getTTL() * 2592000
         ]);
     }
 }
