@@ -21,8 +21,6 @@ function App() {
                 <Route exact path="/boards" component={InitialBoard} />
                 <Route exact path="/boards/:userId/:boardId" component={InitialBoard} />
                 <Route exact path="/login"><LoginForm/></Route>
-                <Route exact path="/home" render={props => <HomePage {...props}/>}/>
-                <Route exact path="/boards" component={initialBoard} />
 
             </Switch>
         </div>
