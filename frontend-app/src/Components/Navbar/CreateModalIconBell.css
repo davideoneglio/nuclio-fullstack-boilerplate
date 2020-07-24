@@ -94,9 +94,12 @@
 
 .trelloguide-img {
     border-radius: 3px;
-    display: block;
+    display: fixed;
     width: 100%;
-    max-width: 100%;
+    margin-bottom: 2px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
 }
 
 .title-content {
