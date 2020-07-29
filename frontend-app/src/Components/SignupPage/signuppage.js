@@ -71,8 +71,9 @@ const Signup = props => {
                     }
                     return response.json()
                 }).then(response => {
-                    debugger;
-                    alert(response.error);
+                    if(response.error) {
+                        alert(response.error);
+                    }
                     localStorage.setItem('token', response.access_token);
                     history.push('/home');
             }).catch(function (error) {
@@ -82,7 +83,7 @@ const Signup = props => {
     }
 
     return(
-        <div className="root">
+        <div className="root-signup">
             <div className="display-image-left">
                 <img src={imageRight} alt="imageRight" width="300px" height="300px"/>
             </div>

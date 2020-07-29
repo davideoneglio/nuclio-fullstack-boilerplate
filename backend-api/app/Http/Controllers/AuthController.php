@@ -20,7 +20,7 @@ class AuthController extends Controller
             ]);
         } catch (\Exception $e) {
             if($e instanceof QueryException) {
-                return response()->json(["error" => "el usuario ya existe"])->setStatusCode(500);
+                return response()->json(["error" => $e->getMessage()])->setStatusCode(500);
             } //gestionar el error en frontend
         }
         //auth es un guard proporcionado por Laravel que llamará al provider que hemos registrado antes.
