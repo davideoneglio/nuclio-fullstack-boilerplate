@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth.jwt'], function (){
 
     Route::get('/board/{id}', 'BoardsController@findById');
 
+    Route::get('/boardata/{id}', 'BoardsController@findBoardData');
+
     Route::get('/board', 'BoardsController@findAllBoardsForLoggedUser');
 
     Route::put('/board/{id}', 'BoardsController@update');

@@ -28,7 +28,7 @@ services:
     tty: true
     ports:
       - "80:80"
-      - "443:443"
+      - "433:433"
     volumes:
       - ./:/var/www
       - ./nginx/conf.d/:/etc/nginx/conf.d/

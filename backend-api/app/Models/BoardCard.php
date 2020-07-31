@@ -16,7 +16,7 @@ class BoardCard extends Model
         'ordering'
     ];
 
-    protected function lists()
+    protected function list()
     {
         return $this->belongsTo(BoardList::class);
     }
