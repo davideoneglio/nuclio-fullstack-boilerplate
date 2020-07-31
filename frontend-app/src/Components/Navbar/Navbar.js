@@ -3,11 +3,14 @@ import './Navbar.css'
 import trellologo from "../../img/trello.jpg";
 import CreateModalIconPlus from "./CreateModalIconPlus";
 import CreateModalIconBell from "./CreateModalIconBell";
+import {CreateModalUser} from "./CreateModalUser";
 
 const Navbar = props => {
 
     const [ showiconplus,setShowplus ] = useState(false);
     const [ showiconbell,setShowbell ] = useState(false);
+    const [ showinconuser, setShowiconuser ] = useState(false);
+
     const closeModalHandler = () => setShowbell (false);
 
     return (
@@ -40,7 +43,8 @@ const Navbar = props => {
                     {showiconbell && <CreateModalIconBell showiconbell={showiconbell} closeModalHandler={() => setShowbell(false)}/>}
                     <button onClick={() => setShowbell (true)} className="button-container-bell" href="/"> <i className="icon-bell"/> </button>
                     {showiconbell && <CreateModalIconBell showiconbell={showiconbell} closeModalHandler={() => setShowbell(false)}/>}
-                    <button className="button-container-navbar"> User ID </button>
+                    <button onClick={() => setShowiconuser (true)} className="button-container-navbar"> User ID </button>
+                    {showinconuser && <CreateModalUser showiconuser={showinconuser} closeModalHandler={() => setShowiconuser(false)}/>}
 
                 </div>
             </div>
