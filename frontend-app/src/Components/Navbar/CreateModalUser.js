@@ -1,6 +1,6 @@
 import React from "react";
 
-export const CreateModalUser = () => {
+export const CreateModalUser = ({}) => {
     const logOut = () => {
         localStorage.clear();
         window.location.href = "/";
