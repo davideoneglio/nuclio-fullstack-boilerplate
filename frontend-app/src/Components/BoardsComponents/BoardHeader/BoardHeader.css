@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: row;
     transition: padding .1s ease-in;
-    background-color: #5aac44;
+    background-color: #1188de;
 }
 
 .project {
@@ -88,10 +88,6 @@
 
 #privado-asunto {
     float: left;
-}
-
-.asunto {
-
 }
 
 .asunto-button {

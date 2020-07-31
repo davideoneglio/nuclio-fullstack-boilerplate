@@ -13,7 +13,7 @@ function List({ title, cards }) {
 
 
     return (
-        <div className="root">
+        <div className="lists">
             <Paper>
                 <CssBaseline />
                 <Title text={title}/>

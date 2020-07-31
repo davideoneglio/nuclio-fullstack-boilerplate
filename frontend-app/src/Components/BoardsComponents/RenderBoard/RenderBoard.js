@@ -3,6 +3,7 @@ import Boards from "../Boards/Boards";
 import data from "../boards.json";
 import { useParams } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
+import BoardHeader from "../BoardHeader/BoardHeader";
 
 
 const RenderBoard = (props) => {
@@ -38,6 +39,7 @@ const RenderBoard = (props) => {
     return (
         <div>
             <Navbar />
+            <BoardHeader />
             {board &&
                 <div>
                     {board.map((board) =>
