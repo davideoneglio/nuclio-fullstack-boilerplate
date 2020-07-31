@@ -18,7 +18,7 @@ const PersonalBoards = props => {
                 <div className={"boards-personal"}>
                     {personalBoards.map(data => {
                         return(
-                            <BoardPreView name={data.boardName} owner={data.owner}/>
+                            <BoardPreView name={data.title} owner={data.owner} id={data.id}/>
                         )
                     })}
                 </div>
