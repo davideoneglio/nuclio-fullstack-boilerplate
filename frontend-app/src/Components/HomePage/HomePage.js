@@ -12,13 +12,18 @@ const HomePage = props => {
     const [ownerBoards, setOwnerBoards] = useState("");
 
     useEffect(() => {
-        fetch("http://localhost:5000/recentlyboards")
+        const token = localStorage.getItem('token');
+        fetch("http://localhost/api/board", {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                "content-type": "application/json",
+            }})
             .then(responseBoard => responseBoard.json())  //leer el JSon
             .then(pinFormResponse => { //Caracteristicas de la respuesta
-                pinFormResponse.sort((a, b) => parseFloat(a.lastView) - parseFloat(b.lastView));
-                setRecentlyBoards(pinFormResponse);
-                const ownerResponseBoards = pinFormResponse.filter(data => data.owner === "Aleix");
-                setOwnerBoards(ownerResponseBoards);
+                //pinFormResponse.sort((a, b) => parseFloat(a.lastView) - parseFloat(b.lastView));
+                setOwnerBoards(pinFormResponse);
             });
     }, [])
 
