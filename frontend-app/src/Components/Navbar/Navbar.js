@@ -30,7 +30,7 @@ const Navbar = props => {
                         <i className="icon-search"/>
                     </div>
                 </div>
-                <a href="/">
+                <a href="/home">
                     <div className="trello-img-logo-navbar">
                         <img src={trellologo} alt="trello-logo"/>
                     </div>
