@@ -6,6 +6,8 @@ export const CreateModalUser = () => {
         window.location.href = "/";
     }
 
+    //fetch(API + `?_start=0&_limit=5`//
+
     return (
         <div className="modal-wrapper">
             <button onClick={() => logOut()}>

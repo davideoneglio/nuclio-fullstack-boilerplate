@@ -5,7 +5,6 @@ import imageLeft from '../../Components/SignupPage/images/Captura de pantalla 20
 import {InputForm} from "./InputForm/inputform";
 import {useHistory} from 'react-router-dom';
 
-
 const Signup = props => {
 
     const initialState = {
@@ -44,6 +43,9 @@ const Signup = props => {
 
     console.log(errors);
 
+    //NO FUNCIONA BIEN, AUNQUE LO PONGA MAL ME CREA EL USUARIO, REVISAR//
+    //IGUAL CON EL LOG IN, NO SALE ERROR, TE REDIRIGE A HOME DIRECTAMENTE//
+
     const handleOnClickSubmit = () => {
         validatePassword();
         if(!errors.password && !errors.email) {
@@ -73,9 +75,10 @@ const Signup = props => {
                 }).then(response => {
                     if(response.error) {
                         alert(response.error);
+                    }else{
+                        localStorage.setItem('token', response.access_token);
+                        history.push('/home');
                     }
-                    localStorage.setItem('token', response.access_token);
-                    history.push('/home');
             }).catch(function (error) {
                 console.log('Hubo un problema con la petición Fetch:' + error);
             })

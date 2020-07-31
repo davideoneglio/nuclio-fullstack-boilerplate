@@ -13,7 +13,7 @@ const HomePage = props => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        fetch("http://localhost/api/board", {
+        fetch("http://localhost/api/board?_start=0&_limit=2" , {
             method: "GET",
             mode: "cors",
             headers: {

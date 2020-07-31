@@ -49,11 +49,13 @@ class BoardsController extends Controller
     }
 
 
-    public function findAllBoardsForLoggedUser()
+    public function findAllBoardsForLoggedUser(Request $request)
     {
         $user = $this->getAuthenticatedUser();
 
-        //que es esto?
+        //$_limit = $request->query('_limit'); revisar para que haga bien el querystring
+        //$_start = $request->query('_start');
+
         $boards = $user->boards;
 
         return response()->json($boards);
