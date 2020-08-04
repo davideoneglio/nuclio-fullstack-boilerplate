@@ -17,7 +17,7 @@ const RenderBoard = (props) => {
     //let board = data.board.filter(board => board.id===id)
 
     useEffect(() => {
-        fetch(`http://localhost/api/board/${id}`, {
+        fetch(`http://localhost/api/boardata/${id}`, {
             method: 'GET',
             headers: new Headers({
                 'Authorization': `Bearer ${token}`,
