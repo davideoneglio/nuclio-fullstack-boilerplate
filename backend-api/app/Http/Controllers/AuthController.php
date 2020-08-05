@@ -21,7 +21,7 @@ class AuthController extends Controller
             ]);
         } catch (\Exception $e) {
             if($e instanceof QueryException) {
-                return response()->json(["error" => $e->getMessage()])->setStatusCode(500);
+                return response()->json(["error" => "El email indicado ya pertenece a un usuario registrado."])->setStatusCode(500);
             } //gestionar el error en frontend
         }
         //auth es un guard proporcionado por Laravel que llamará al provider que hemos registrado antes.
@@ -51,11 +51,13 @@ class AuthController extends Controller
     {
         return $this->respondWithToken(auth()->refresh());
     }
-    public function logout()
+
+    //hacemos logout en frontend
+    /*public function logout()
     {
         auth()->logout();
         return response()->json(['message'=>'Successfully logged out']);
-    }
+    }*/
     protected function respondWithToken($token)
     {
         return response()->json([

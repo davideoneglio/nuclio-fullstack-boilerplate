@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en-ES">
-<head>
-    <meta charset="utf-8">
-    <title>Laravel</title>
+@component('mail::message')
 
-</head>
-<body>
+<h2>Dear {{$data}}, welcome to Trello!</h2>
 
-    <h1>a</h1>
-    <h2>a</h2>
+@component('mail::button', ['url' => 'http://localhost:3000'])
 
-</body>
-</html>
+    Visit Trello
+
+@endcomponent
+
+@endcomponent
+

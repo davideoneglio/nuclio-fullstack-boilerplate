@@ -32,7 +32,7 @@ const Navbar = props => {
                 </div>
                 <a href="/home">
                     <div className="trello-img-logo-navbar">
-                        <img src={trellologo} alt="trello-logo"/>
+                        <img className="trello-logo-imagen-navbar" src={trellologo} alt="trello-logo"/>
                     </div>
                 </a>
 

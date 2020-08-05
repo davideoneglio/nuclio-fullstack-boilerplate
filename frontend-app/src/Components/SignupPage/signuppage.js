@@ -15,6 +15,7 @@ const Signup = props => {
 
     const [ data, setData ] = useState(initialState);
     const [ errors, setErrors ] = useState({email: false, password: false})
+    const [ userAlreadyRegisteredError, setUserAlreadyRegisteredError ] = useState("");
 
     const history = useHistory();
 
@@ -38,7 +39,9 @@ const Signup = props => {
     const validatePassword = () => {
         const pattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/;
         const regex = RegExp(pattern);
-        setErrors({...errors, password:!regex.test(data.password)});
+        if(data.password.length > 0){
+            setErrors({...errors, password:!regex.test(data.password)});
+        }
     };
 
     console.log(errors);
@@ -47,43 +50,45 @@ const Signup = props => {
     //IGUAL CON EL LOG IN, NO SALE ERROR, TE REDIRIGE A HOME DIRECTAMENTE//
 
     const handleOnClickSubmit = () => {
-        validatePassword();
         if(!errors.password && !errors.email) {
-            fetch("http://localhost/api/sendEmail",{
-                "method": "POST",
-                "mode": "cors",
-                "headers": {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                "body": JSON.stringify(data),
-            })
             fetch("http://localhost/api/register", {
-                "method": "POST",
-                "mode": "cors",
-                "headers": {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                "body": JSON.stringify(data),
-            })
-                .then((response) => {
-                    if(!response.ok) {
-                        setErrors({...errors, response: errors});
-                    }
-                    return response.json()
-                }).then(response => {
-                    if(response.error) {
-                        alert(response.error);
-                    }else{
-                        localStorage.setItem('token', response.access_token);
-                        history.push('/home');
-                    }
-            }).catch(function (error) {
-                console.log('Hubo un problema con la petición Fetch:' + error);
-            })
+            "method": "POST",
+            "mode": "cors",
+            "headers": {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            "body": JSON.stringify(data),
+        })
+            .then((response) => {
+                /*if(!response.ok) {
+                    debugger;
+                    setErrors({...errors, response: errors});
+                    debugger;
+                }*/ //No tiene funcionalidad este trozo de código
+                return response.json()
+            }).then(response => {
+                if(response.error) {
+                    setUserAlreadyRegisteredError({...userAlreadyRegisteredError, response: userAlreadyRegisteredError})
+                }else{
+                    localStorage.setItem('token', response.access_token);
+                    history.push('/home');
+                    fetch("http://localhost/api/sendEmail",{
+                        "method": "POST",
+                        "mode": "cors",
+                        "headers": {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        "body": JSON.stringify(data),
+                    });
+                }
+        }).catch(function (error) {
+            console.log('Hubo un problema con la petición Fetch:' + error);
+        })
         }
-    }
+        }
+
 
     return(
         <div className="root-signup">
@@ -103,6 +108,7 @@ const Signup = props => {
                                      className="quick-switch">
 
                                     {errors.password ? <p className="input-error-message-password">La contraseña debe contener al menos 8 caracteres, una letra mayúscula y un número.</p> : undefined}
+                                    {userAlreadyRegisteredError ? <p className="input-error-message-password">Correo electrónico ya utilizado por otra cuenta. Puede utilizar <a className="duplicate-email-error-register" href="/login" >el inicio de sesión o la página de contraseña olvidada</a> para restablecer su contraseña.</p> : undefined}
 
                                     <h1>Crea tu cuenta</h1>
 
@@ -129,6 +135,7 @@ const Signup = props => {
                                     <InputForm type="password"
                                                value={data.password}
                                                onChange={event => handleChange("password", event.target.value)}
+                                               onBlur={validatePassword}
                                                name="password"
                                                id="password"
                                                className="form-field"

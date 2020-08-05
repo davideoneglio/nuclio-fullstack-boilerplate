@@ -45,7 +45,7 @@ class UsersController extends Controller
 
         $data = $request->all();
 
-        Mail::to($data['email'])->send(new NewEmail());
+        Mail::to($data['email'])->send(new NewEmail($data['name']));
 
         return response()->json($data);
 

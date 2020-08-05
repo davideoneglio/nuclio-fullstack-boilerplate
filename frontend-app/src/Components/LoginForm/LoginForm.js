@@ -147,7 +147,7 @@ const LoginForm = props => {
                                 <div>
                                     <ul className="bottomFromLink">
                                         <li className="bottomFromLinkText">¿No puede inicar sesión?</li>
-                                        <li className="bottomFromLinkText">Registrese para crear una cuenta</li>
+                                        <li className="bottomFromLinkText"><a href="/signup">Registrese para crear una cuenta</a></li>
                                     </ul>
                                 </div>
                             </div>

@@ -174,5 +174,9 @@ footer ul {
     display: block;
 }
 
+.duplicate-email-error-register {
+    color: white;
+    text-decoration: underline;
+}
 
 
