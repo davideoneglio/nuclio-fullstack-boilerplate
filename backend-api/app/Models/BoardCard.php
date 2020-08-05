@@ -16,12 +16,12 @@ class BoardCard extends Model
         'ordering'
     ];
 
-    protected function list()
+    public function list()
     {
-        return $this->belongsTo(BoardList::class);
+        return $this->belongsTo(BoardList::class, "list_id");
     }
 
-    protected function cardActivity()
+    public function cardActivity()
     {
         return $this->hasOne(CardActivity::class);
     }

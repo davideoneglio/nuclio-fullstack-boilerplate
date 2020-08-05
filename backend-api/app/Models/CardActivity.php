@@ -15,7 +15,7 @@ class CardActivity extends Model
         'text'
     ];
 
-    protected function cards()
+    public function cards()
     {
         return $this->belongsTo(BoardCard::class);
     }

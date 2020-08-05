@@ -16,13 +16,13 @@ class BoardList extends Model
         'ordering'
     ];
 
-    protected function board()
+    public function board()
     {
         return $this->belongsTo(Board::class);
     }
 
-    protected function cards()
+    public function cards()
     {
-        return $this->hasMany(BoardCard::class);
+        return $this->hasMany(BoardCard::class, "list_id");
     }
 }

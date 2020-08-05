@@ -42,8 +42,12 @@ class BoardsController extends Controller
     {
         $user = $this->getAuthenticatedUser();
         $board = Board::where('id', $id)->where("user_id", $user->id)->first();
-        $lists = BoardList::where('board_id', $id)->get();
-        dd($lists[0]->cards());
+        $lists = BoardList::with(["cards"])->where('board_id', $id)->get();
+        $dataResponse = [
+            "board" => $board,
+            "lists" => $lists
+        ];
+        return response()->json($dataResponse);
     }
 
 

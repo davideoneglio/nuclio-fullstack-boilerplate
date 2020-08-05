@@ -14,12 +14,12 @@ class Board extends Model
     ];
 
 //es correcto?
-    protected function user()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    protected function lists()
+    public function lists()
     {
         return $this->hasMany(BoardList::class);
     }
