@@ -4,6 +4,7 @@ import data from "../boards.json";
 import { useParams } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import BoardHeader from "../BoardHeader/BoardHeader";
+import {Boardd} from "../boardstestpepe";
 
 
 const RenderBoard = (props) => {
@@ -11,10 +12,10 @@ const RenderBoard = (props) => {
     const {match} = props
 
     const id = match.params.id;
-    const token = localStorage.getItem("key");
+    const token = localStorage.getItem('token');
 
-    const [board, setBoard] = useState("");
-    //let board = data.board.filter(board => board.id===id)
+    const [board, setBoard] = useState(undefined);
+    console.log(board);
 
     useEffect(() => {
         fetch(`http://localhost/api/boardata/${id}`, {
@@ -25,31 +26,19 @@ const RenderBoard = (props) => {
             }),
             mode: 'cors',
         })
+            .then(response => response.json())
             .then(response => {
-                if (response.status === 200) {
-                    return response.json();
-                }
-            })
-            .then(data => {
-                setBoard(data);
+                setBoard(response);
             })
             .catch(error => console.log(error));
-    }, [])
+    }, [id])
 
     return (
         <div>
             <Navbar />
             <BoardHeader />
-            {board &&
-                <div>
-                    {board.map((board) =>
-                        <Boards {...board}/>
-                    )}
-                </div>
-            }
-
+            {board && (<p>{board.board.title}</p>)}
         </div>
-
     );
 }
 export default RenderBoard;

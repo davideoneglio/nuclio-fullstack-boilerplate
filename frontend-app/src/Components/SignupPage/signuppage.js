@@ -97,8 +97,10 @@ const Signup = props => {
             </div>
             <div>
                 <div className="image-container">
-                    <img alt="Trello" className="trello-main-logo"
-                         src="https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/trello-header-logos/76ceb1faa939ede03abacb6efacdde16/trello-logo-blue.svg" />
+                    <a href="/home">
+                        <img alt="Trello" className="trello-main-logo"
+                             src="https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/trello-header-logos/76ceb1faa939ede03abacb6efacdde16/trello-logo-blue.svg" />
+                    </a>
                     <section className="inner-section">
                         <div className="section-wrapper">
                             <div id="signup-form"
@@ -157,7 +159,7 @@ const Signup = props => {
                                             onClick={handleOnClickSubmit} >Registrarse</button>
                                     <hr />
                                     <span className="bottom-form-link">
-                                            <a href="#">¿Ya tiene una cuenta? Inicie sesión</a>
+                                            <a href="/login">¿Ya tiene una cuenta? Inicie sesión</a>
                                         </span>
                                 </div>
                             </div>

@@ -1,6 +1,9 @@
 import React from "react";
+import './CreateModalUser.css';
+import CloseModalOnClickOutside from "./CloseModalOnClickOutside";
 
-export const CreateModalUser = () => {
+export const CreateModalUser = ({closeModalHandler}) => {
+
     const logOut = () => {
         localStorage.clear();
         window.location.href = "/";
@@ -9,11 +12,13 @@ export const CreateModalUser = () => {
     //fetch(API + `?_start=0&_limit=5`//
 
     return (
-        <div className="modal-wrapper">
-            <button onClick={() => logOut()}>
-                Log Out
-            </button>
-        </div>
+        <CloseModalOnClickOutside closeModalHandler={closeModalHandler} >
+            <div className="modal-wrapper user-logout-component">
+                <button className="logout-navbar-button" onClick={() => logOut()}>
+                    Log Out
+                </button>
+            </div>
+        </CloseModalOnClickOutside>
     );
 }
 

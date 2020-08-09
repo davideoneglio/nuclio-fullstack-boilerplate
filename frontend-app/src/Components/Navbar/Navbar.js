@@ -11,8 +11,6 @@ const Navbar = props => {
     const [ showiconbell,setShowbell ] = useState(false);
     const [ showinconuser, setShowiconuser ] = useState(false);
 
-    const closeModalHandler = () => setShowbell (false);
-
     return (
 
         <nav className="header-container-navbar">

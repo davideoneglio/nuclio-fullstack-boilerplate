@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const LoginForm = props => {
     const [data, setData] = useState({email: "", password: ""});
     const [formError, setFormError] = useState({email: false, password: false});
-    const [error, setError] =useState(false)
+    const [errors, setErrors] =useState(false)
 
     const handleInputChange = (key, newValue) => {
         setData({...data, [key]:newValue});
@@ -47,11 +47,7 @@ const LoginForm = props => {
 
     const history = useHistory();
 
-    const sendData = () => {
-        const errors = {};
-        Object.keys(data).forEach(key => {
-            errors[key] = data[key] === "";
-        });
+    const handleOnClickSubmit = () => {
         if (!formHasErrors(errors)) {
             fetch("http://localhost/api/login", {
                 method: "post",
@@ -61,23 +57,21 @@ const LoginForm = props => {
                 },
                 body: JSON.stringify(data),
             })
-                .then((res) => {
-                    if(res > 400) {
-                        setError(res.error);
-                    }
-                    return res.json();
-                }).catch((error) => {
-                console.log(error);
+                .then((response) => {
+                    return response.json()
+                }).then(response => {
+                if (response.error) {
+                    setErrors({...errors, response: errors})
+                } else {
+                    localStorage.setItem('token', response.access_token);
+                    history.push('/home');
+                }
+            }).catch(function (error) {
+                console.log('Hubo un problema con la petición Fetch:' + error);
             })
-                .then((resJson) => {
-                    console.log(resJson);
-                    localStorage.setItem('token', resJson.access_token);
-                    history.push('/home')//guardar este resJson en mi local storage y después hacer un redirect a la home page
-                })
-        } else{
-            setFormError(errors);
         }
     };
+
     return (
         <div className="container-login">
             <div>
@@ -85,6 +79,9 @@ const LoginForm = props => {
                      src="https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/trello-header-logos/76ceb1faa939ede03abacb6efacdde16/trello-logo-blue.svg"/>
                 <section className="inner-section-login ">
                     <div className="formBox">
+
+                        {errors ? <p className="input-error-message-login">No existe ninguna cuenta para este nombre de usuario o la contraseña introducida no es la correcta.</p> : undefined}
+
                         <div><h1 className="headForm"> Iniciar sesión en Trello</h1></div>
                         <div>
                             <div>
@@ -102,7 +99,6 @@ const LoginForm = props => {
                                     pattern="[a-z]{1,15}"
                                     title="Username should only contain lowercase letters. e.g. john"
                                     required/>
-                                    {formError.email && <legend className="errorMessage" >Hay un error en el username</legend>}
                             </div>
                             <div>
                                 <input
@@ -120,7 +116,7 @@ const LoginForm = props => {
                             </div>
 
                             <div>
-                                <button disabled={!formHasErrors} className="loginButton" onClick={sendData}>
+                                <button disabled={!formHasErrors} className="loginButton" onClick={handleOnClickSubmit}>
                                     Iniciar sesión
                                 </button>
                             </div>
