@@ -43,7 +43,7 @@
 
 .modal-content {
     margin-bottom: 8px;
-    padding: 0 12px;
+    padding: 0px;
     position: relative;
     text-align: center;
     display: block;
@@ -88,6 +88,11 @@
     transition: none;
     margin: 0;
     outline: 0;
+    cursor: pointer;
+}
+
+.button-organization:hover {
+    background-color: #f2f2f2;
 }
 
 .icon-organization {
@@ -110,4 +115,9 @@
     line-height: 16px;
     margin: 4px 0 0;
     padding: 0;
+    text-align: initial;
+}
+
+.modal-ul{
+    padding: 0px;
 }

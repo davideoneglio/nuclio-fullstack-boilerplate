@@ -7,8 +7,10 @@ import {CreateModalUser} from "./CreateModalUser";
 
 const Navbar = props => {
 
-    const [ showiconplus,setShowplus ] = useState(false);
-    const [ showiconbell,setShowbell ] = useState(false);
+    const {setRefresh} = props
+
+    const [ showiconplus, setShowplus ] = useState(false);
+    const [ showiconbell, setShowbell ] = useState(false);
     const [ showinconuser, setShowiconuser ] = useState(false);
 
     return (
@@ -36,7 +38,7 @@ const Navbar = props => {
 
                 <div className="right-container-navbar">
                     <button onClick={() => setShowplus (true)} className="button-container-navbar"> <i className="icon-plus"/> </button>
-                    {showiconplus && <CreateModalIconPlus showiconplus={showiconplus} closeModalHandler={() => setShowplus(false)}/>}
+                    {showiconplus && <CreateModalIconPlus setRefresh={setRefresh} showiconplus={showiconplus} closeModalHandler={() => setShowplus(false)}/>}
                     <button onClick={() => setShowbell (true)} className="button-container-navbar" href="/"> <i className="icon-info-circled-alt"/> </button>
                     {showiconbell && <CreateModalIconBell showiconbell={showiconbell} closeModalHandler={() => setShowbell(false)}/>}
                     <button onClick={() => setShowbell (true)} className="button-container-bell" href="/"> <i className="icon-bell"/> </button>

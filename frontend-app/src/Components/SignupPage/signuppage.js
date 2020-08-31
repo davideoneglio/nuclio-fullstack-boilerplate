@@ -44,11 +44,6 @@ const Signup = props => {
         }
     };
 
-    console.log(errors);
-
-    //NO FUNCIONA BIEN, AUNQUE LO PONGA MAL ME CREA EL USUARIO, REVISAR//
-    //IGUAL CON EL LOG IN, NO SALE ERROR, TE REDIRIGE A HOME DIRECTAMENTE//
-
     const handleOnClickSubmit = () => {
         if(!errors.password && !errors.email) {
             fetch("http://localhost/api/register", {

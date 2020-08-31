@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
-import Boards from "../Boards/Boards";
-import data from "../boards.json";
 import { useParams } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import BoardHeader from "../BoardHeader/BoardHeader";
-import {Boardd} from "../boardstestpepe";
+import {ListWrapper} from "../List/ListWrapper";
+import {AddList} from "../List/AddList";
 
 
 const RenderBoard = (props) => {
@@ -15,29 +14,35 @@ const RenderBoard = (props) => {
     const token = localStorage.getItem('token');
 
     const [board, setBoard] = useState(undefined);
-    console.log(board);
+    const [refresh, setRefresh] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost/api/boardata/${id}`, {
-            method: 'GET',
-            headers: new Headers({
-                'Authorization': `Bearer ${token}`,
-                "content-type": "application/json",
-            }),
-            mode: 'cors',
-        })
-            .then(response => response.json())
-            .then(response => {
-                setBoard(response);
+        if(!refresh) {
+            fetch(`http://localhost/api/boardata/${id}`, {
+                method: 'GET',
+                headers: new Headers({
+                    'Authorization': `Bearer ${token}`,
+                    "content-type": "application/json",
+                }),
+                mode: 'cors',
             })
-            .catch(error => console.log(error));
-    }, [id])
+                .then(response => response.json())
+                .then(response => {
+                    setBoard(response);
+                    setRefresh(true);
+                })
+                .catch(error => console.log(error));
+            }
+        }, [refresh])
 
     return (
         <div>
-            <Navbar />
+            <Navbar setRefresh={setRefresh} />
             <BoardHeader />
-            {board && (<p>{board.board.title}</p>)}
+            <div id="board" className="render-board-screen">
+                {board && board.lists.map(list => <ListWrapper list={list} setRefresh={setRefresh} />)}
+                {board && <AddList board={board.board} setRefresh={setRefresh}/>}
+            </div>
         </div>
     );
 }
