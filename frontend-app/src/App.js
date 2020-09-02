@@ -11,7 +11,7 @@ import RenderBoard from "./Components/BoardsComponents/RenderBoard/RenderBoard";
 
 function App() {
   return (
-      <Router>
+      <Router forceRefresh={true}>
         <div className="App">
             <Switch>
                 <Route exact path="/navbar" component={Navbar}/>

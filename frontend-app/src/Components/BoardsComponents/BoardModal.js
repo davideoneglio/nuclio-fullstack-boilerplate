@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
+import {useHistory} from 'react-router-dom';
 
 function getModalStyle() {
     const top = 20
@@ -27,7 +28,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BoardModal(props) {
 
-    const {id, setRefresh, setOpen, open, handleClose} = props
+    const {id, setRefresh, open, handleClose} = props
+
+    const history = useHistory();
 
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
@@ -62,8 +65,7 @@ export default function BoardModal(props) {
                 }
                 throw response;
             }).then(response => {
-            setRefresh(false);
-            setAddBoard({...addBoard, title:"Add another board"})
+                history.push(`/board/${response.id}`)
         })
     }
 
