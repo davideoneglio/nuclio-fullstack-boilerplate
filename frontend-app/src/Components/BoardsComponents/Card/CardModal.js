@@ -25,9 +25,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ListModal(props) {
+export default function CardModal (props) {
 
-    const {id, setRefresh} = props
+    const {id, description} = props
 
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
@@ -43,34 +43,15 @@ export default function ListModal(props) {
         setOpen(false);
     };
 
-    const token = localStorage.getItem('token');
-
-    const handleDeleteList = () => {
-        fetch(`http://localhost/api/list/${id}`, {
-            method: "delete",
-            headers: new Headers({
-                'Authorization': `Bearer ${token}`,
-                "content-type": "application/json",
-            }),
-            mode: 'cors',
-        }).then(response => response.json())
-            .then(response => {
-                setRefresh(false)
-                setOpen(false)
-            })
-    }
-
     const body = (
         <div style={modalStyle} className={classes.paper}>
-            <button onClick={handleDeleteList}>Delete List</button>
+            <button onClick="/">Delete List</button>
         </div>
     );
 
     return (
         <div>
-            <button type="button" onClick={handleOpen}>
-                ...
-            </button>
+            <div className="list-card" >{description}</div>
             <Modal
                 open={open}
                 onClose={handleClose}

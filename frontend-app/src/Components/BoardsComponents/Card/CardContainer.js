@@ -1,5 +1,7 @@
 import React from "react";
 import '../BoardComponent.css';
+import ListModal from "../List/ListModal";
+import CardModal from "./CardModal";
 
 export const CardContainer = (props) => {
 
@@ -23,7 +25,7 @@ export const CardContainer = (props) => {
 
     return (
         <div className="list-card-details" >
-            <div className="list-card" >{card.description}</div>
+            <CardModal id={card.id} description={card.description} />
             <div onClick={handleDeleteCard} className="delete-card-button" >X</div>
         </div>
     )
