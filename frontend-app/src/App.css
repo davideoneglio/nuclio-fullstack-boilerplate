@@ -1,5 +1,13 @@
+@import "./Components/Navbar/Font-icon/css/fontello.css";
+
+* {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+}
+
 .App {
   text-align: center;
+
 }
 
 .App-logo {
