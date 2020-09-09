@@ -9,7 +9,7 @@ export const ListWrapper = (props) => {
 
     const token = localStorage.getItem('token');
 
-    const [addCard, setAddCard] = useState({description: "Add another card"})
+    const [addCard, setAddCard] = useState({description: ""}) //innecesario utilizar objeto si solo hay un valor - cambiar
 
     const handleChange = (key, newValue) => {
         setAddCard({...addCard, [key]: newValue})
@@ -37,7 +37,7 @@ export const ListWrapper = (props) => {
                 throw response;
             }).then(response => {
                 setRefresh(false);
-                setAddCard({...addCard, description: "Add another card"})
+                setAddCard({...addCard, description: ""})
         })
     }
 
@@ -52,7 +52,8 @@ export const ListWrapper = (props) => {
                 <div className="card-composer-container">
 
                     <input className="open-card-composer"
-                           placeholder={addCard.description}
+                           placeholder="Add card"
+                           value={addCard.description}
                            onChange={event => handleChange("description", event.target.value)}/>
 
                     <button type="submit"

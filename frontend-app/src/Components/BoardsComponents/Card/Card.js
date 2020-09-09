@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
+import {ShowActivity} from "../Activity/ShowActivity";
+import './CardStyles.css';
 
 function getModalStyle() {
     const top = 50
@@ -25,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function CardModal (props) {
+export default function Card (props) {
 
     const {id, description} = props
 
@@ -33,7 +35,6 @@ export default function CardModal (props) {
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
-
 
     const handleOpen = () => {
         setOpen(true);
@@ -43,22 +44,26 @@ export default function CardModal (props) {
         setOpen(false);
     };
 
-    const body = (
-        <div style={modalStyle} className={classes.paper}>
-            <button onClick="/">Delete List</button>
-        </div>
-    );
-
     return (
-        <div>
-            <div className="list-card" >{description}</div>
+        <div onClick={handleOpen}>
+            <div className="list-card" onClick={handleOpen} >{description}</div>
+
             <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
             >
-                {body}
+
+            <div style={modalStyle} className={classes.paper}>
+                <text className="card-modal-title" >{description}</text>
+                <br/>
+                <br/>
+                <p className="Activity-heading-card-modal" >Activity</p>
+                <br/>
+                <ShowActivity id={id}/>
+            </div>
+
             </Modal>
         </div>
     );

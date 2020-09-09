@@ -75,7 +75,7 @@ Route::group(['middleware' => 'auth.jwt'], function (){
 
     Route::get('/card_activity/{id}', 'CardActivityController@findById');
 
-    Route::get('/card_activity/card/{card_id}', 'CardActivityController@findByCardId');
+    Route::get('/card_activity/card/{card_id}', 'CardActivityController@findAllActivitiesForCard');
 
     Route::put('/card_activity/{id}', 'CardActivityController@update');
 

@@ -67,7 +67,6 @@ const Signup = props => {
                     setUserAlreadyRegisteredError({...userAlreadyRegisteredError, response: userAlreadyRegisteredError})
                 }else{
                     localStorage.setItem('token', response.access_token);
-                    history.push('/home');
                     fetch("http://localhost/api/sendEmail",{
                         "method": "POST",
                         "mode": "cors",
@@ -76,7 +75,9 @@ const Signup = props => {
                             'Content-Type': 'application/json'
                         },
                         "body": JSON.stringify(data),
-                    });
+                    }).then(response => {
+                        history.push('/home');
+                    })
                 }
         }).catch(function (error) {
             console.log('Hubo un problema con la petición Fetch:' + error);

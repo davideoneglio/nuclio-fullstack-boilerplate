@@ -11,7 +11,6 @@ function useOutsideClicker(ref, closeModalHandler) {
 
         function handleClickOutside(event) {
             if (ref.current && !ref.current.contains(event.target)) {
-                debugger;
                 closeModalHandler();
             }
         }

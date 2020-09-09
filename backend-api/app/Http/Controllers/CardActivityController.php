@@ -41,7 +41,7 @@ class CardActivityController
         return response()->json($activity);
     }
 
-    public function findByCardId($card_id)
+    public function findAllActivitiesForCard($card_id)
     {
         //faltaría hacer la asociación
 
