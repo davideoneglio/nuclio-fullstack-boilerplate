@@ -29,7 +29,7 @@ const HomePage = props => {
 
     return(
         <div>
-            <Navbar className="header-container-navbar" background-color="transparent"/>
+            <Navbar className="header-container-navbar" background-color="transparent" personalBoards={ownerBoards} />
 
             <div className={"container home-page"}>
                 <div className={"home-page-left"}>

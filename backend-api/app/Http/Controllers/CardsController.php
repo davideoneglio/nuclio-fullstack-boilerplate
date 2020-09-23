@@ -55,6 +55,16 @@ class CardsController extends Controller
         }
     }
 
+    public function findLatestCardCreated(Request $request)
+    {
+        $list_id = $request->query()["list_id"];
+        $card_order = BoardCard::where("list_id", $list_id)->max('ordering');
+        if(is_null($card_order)){
+            $card_order = 0;
+        }
+        return response()->json($card_order);
+    }
+
     //falta hacer la asociación
     public function update(Request $request, $id)
     {

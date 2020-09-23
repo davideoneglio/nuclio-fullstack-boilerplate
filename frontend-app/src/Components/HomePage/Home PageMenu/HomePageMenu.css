@@ -5,9 +5,7 @@
   margin-bottom: .5rem;
   width: 200px;
   cursor: pointer;
-  padding: .5rem;
   border-radius: .3rem;
-  font-size: .9rem;
   font-weight: 500;
 }
 
@@ -26,5 +24,11 @@
 
 .menu-text.active .menu-icon{
   color: #0079bf;
+}
+
+.menu-items-left {
+  font-weight: bold;
+  align-self: center;
+
 }
 

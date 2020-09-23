@@ -59,7 +59,7 @@ export default function Card (props) {
                 <text className="card-modal-title" >{description}</text>
                 <br/>
                 <br/>
-                <p className="Activity-heading-card-modal" >Activity</p>
+                <p className="Activity-heading-card-modal" >List of activities</p>
                 <br/>
                 <ShowActivity id={id}/>
             </div>

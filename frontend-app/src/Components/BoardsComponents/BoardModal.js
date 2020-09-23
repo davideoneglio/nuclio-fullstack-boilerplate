@@ -32,18 +32,34 @@ export default function BoardModal(props) {
 
     const history = useHistory();
 
+    const token = localStorage.getItem('token');
+
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
-    const [addBoard, setAddBoard] = React.useState({title: "Add board"})
+    const [addBoard, setAddBoard] = React.useState({title: ""})
+    const [ordering, setOrdering] = React.useState(0)
 
     const handleChange = (key, newValue) => {
         setAddBoard({...addBoard, [key]: newValue})
     }
 
-    const token = localStorage.getItem('token');
+    useEffect(() => {
+        fetch(`http://localhost/api/boards_order?user_id=${id}`, {
+            method: 'GET',
+            headers: new Headers({
+                'Authorization': `Bearer ${token}`,
+                "content-type": "application/json",
+            }),
+            mode: 'cors',
+        })
+            .then(response => response.json())
+            .then(response => {
+                setOrdering(response)
+            })
+            .catch(error => console.log(error));
+    }, [])
 
-    //GESTIONAR RESPONSE CUANDO BOARD YA CREADO - REDIRECT AL BOARD CREADO
     const handleOnClickSubmit = () => {
         fetch("http://localhost/api/board", {
             "method": "POST",
@@ -55,11 +71,13 @@ export default function BoardModal(props) {
             },
             "body": JSON.stringify({
                 "title": addBoard.title,
-                "id": id
+                "user_id": id,
+                "ordering": ordering + 1
             })
         })
             .then((response) => {
                 if(response.ok) {
+                    setOrdering(ordering + 1)
                     return response.json();
 
                 }
@@ -72,7 +90,10 @@ export default function BoardModal(props) {
     const body = (
         <div style={modalStyle} className={classes.paper}>
 
-            <textarea autoFocus={true} onChange={event => handleChange("title", event.target.value)}>Add new Board</textarea>
+            <textarea autoFocus={true}
+                      placeholder="Add board"
+                      value={addBoard.title}
+                      onChange={event => handleChange("title", event.target.value)}>Add new Board</textarea>
 
             <button type="submit"
                     className="#"

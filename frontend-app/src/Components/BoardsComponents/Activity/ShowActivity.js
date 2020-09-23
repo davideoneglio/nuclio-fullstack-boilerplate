@@ -7,13 +7,30 @@ export const ShowActivity = (props) => {
 
     const [refreshCard, setRefreshCard] = React.useState(false);
     const [renderActivities, setRenderActivities] = React.useState([]); //con esto evito hacer el primer render en undefinded
-    const [addActivity, setAddActivity] = useState({text: "Add activity"});
+    const [addActivity, setAddActivity] = useState({text: ""});
+    const [ordering, setOrdering] = React.useState(0)
 
     const token = localStorage.getItem('token');
 
     const handleChange = (key, newValue) => {
         setAddActivity({...addActivity, [key]: newValue})
     }
+
+    useEffect(() => {
+        fetch(`http://localhost/api/activities_order?card_id=${id}`, {
+            method: 'GET',
+            headers: new Headers({
+                'Authorization': `Bearer ${token}`,
+                "content-type": "application/json",
+            }),
+            mode: 'cors',
+        })
+            .then(response => response.json())
+            .then(response => {
+                setOrdering(response)
+            })
+            .catch(error => console.log(error));
+    }, [])
 
     const handleOnClickSubmit = () => {
         fetch("http://localhost/api/card_activity", {
@@ -27,16 +44,17 @@ export const ShowActivity = (props) => {
             "body": JSON.stringify({
                 "text": addActivity.text,
                 "card_id": id,
-                //añadir un ordering en la activity, puede haber más de una
+                "ordering": ordering + 1
             })
         })
             .then((response) => {
                 if (response.ok) {
+                    setOrdering(ordering + 1)
                     return response.json();
                 }
                 throw response;
             }).then(response => {
-            setAddActivity({text: "Add activity"})
+            setAddActivity({text: ""})
             setRefreshCard(false);
         })
     }
@@ -53,7 +71,9 @@ export const ShowActivity = (props) => {
             })
                 .then(response => response.json())
                 .then(response => {
-                    setRenderActivities(response);
+                    if (response.length > 0) {
+                        setRenderActivities(response);
+                    }
                     setRefreshCard(true);
                 })
                 .catch(error => console.log(error));
@@ -61,17 +81,21 @@ export const ShowActivity = (props) => {
     }, [refreshCard])
 
     return (
-        <div className="list-composer-container-activity">
-            {renderActivities.map((activity) => <p>{activity.text}</p>)}
-            <br/>
-            <input className="open-list-composer"
-                   value={addActivity.text}
-                   onChange={event => handleChange("text", event.target.value)}/>
+        <div >
+            <div className="list-composer-container-activity">
+                <input className="open-list-composer-activity"
+                       placeholder="Add activity"
+                       value={addActivity.text}
+                       onChange={event => handleChange("text", event.target.value)}/>
 
-            <button type="submit"
-                    className="submit-button-card"
-                    value="Add activity"
-                    onClick={handleOnClickSubmit} >Add Activity</button>
+                <button type="submit"
+                        className="submit-button-item"
+                        value="Add activity"
+                        onClick={handleOnClickSubmit} >Add Activity</button>
+            </div>
+
+            {renderActivities.map((activity) => <li className="show-activities-display" >{activity.text}</li>)}
+            <br/>
         </div>
 
     )

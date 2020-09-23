@@ -41,6 +41,16 @@ class CardActivityController
         return response()->json($activity);
     }
 
+    public function findLatestActivityCreated(Request $request)
+    {
+        $card_id = $request->query()["card_id"];
+        $activity_order = CardActivity::where("card_id", $card_id)->max('ordering');
+        if(is_null($activity_order)){
+            $activity_order = 0;
+        }
+        return response()->json($activity_order);
+    }
+
     public function findAllActivitiesForCard($card_id)
     {
         //faltaría hacer la asociación
