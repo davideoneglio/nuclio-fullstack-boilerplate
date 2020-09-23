@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {useHistory} from 'react-router-dom';
+import Api from "../../api";
 
 function getModalStyle() {
     const top = 20
@@ -32,8 +33,6 @@ export default function BoardModal(props) {
 
     const history = useHistory();
 
-    const token = localStorage.getItem('token');
-
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
@@ -45,41 +44,24 @@ export default function BoardModal(props) {
     }
 
     useEffect(() => {
-        fetch(`http://localhost/api/boards_order?user_id=${id}`, {
-            method: 'GET',
-            headers: new Headers({
-                'Authorization': `Bearer ${token}`,
-                "content-type": "application/json",
-            }),
-            mode: 'cors',
-        })
-            .then(response => response.json())
+        Api.fetchResource("boards_order", {}, id, {"user_id": id})
             .then(response => {
-                setOrdering(response)
-            })
-            .catch(error => console.log(error));
+                setOrdering(response);
+        }).catch(error => console.log(error));
     }, [])
 
     const handleOnClickSubmit = () => {
-        fetch("http://localhost/api/board", {
+        Api.fetchResource("board", {
             "method": "POST",
-            "mode": "cors",
-            "headers": {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            "body": JSON.stringify({
+            "body": {
                 "title": addBoard.title,
                 "user_id": id,
                 "ordering": ordering + 1
-            })
-        })
-            .then((response) => {
+            }
+        }).then((response) => {
                 if(response.ok) {
                     setOrdering(ordering + 1)
                     return response.json();
-
                 }
                 throw response;
             }).then(response => {
@@ -114,6 +96,5 @@ export default function BoardModal(props) {
                 {body}
             </Modal>
         </div>
-
     );
 }

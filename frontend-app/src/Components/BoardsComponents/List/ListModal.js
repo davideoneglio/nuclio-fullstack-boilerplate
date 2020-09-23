@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import './ListComponent.css';
+import Api from "../../../api";
 
 function getModalStyle() {
     const top = 50
@@ -30,8 +31,6 @@ export default function ListModal(props) {
 
     const {list, board, setRefresh, position, orderingControl} = props
 
-    const token = localStorage.getItem('token');
-
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
@@ -48,15 +47,7 @@ export default function ListModal(props) {
     };
 
     useEffect(() => {
-        fetch(`http://localhost/api/existing_lists?board_id=${board.id}`, {
-            method: 'GET',
-            headers: new Headers({
-                "Authorization": `Bearer ${token}`,
-                "content-type": "application/json",
-            }),
-            mode: "cors",
-        })
-            .then(response => response.json())
+        Api.fetchResource("existing_lists", {}, undefined, {"board_id": board.id})
             .then(response => {
                 setNumberOfLists(response)
             })
@@ -64,14 +55,9 @@ export default function ListModal(props) {
     }, [])
 
     const handleDeleteList = () => {
-        fetch(`http://localhost/api/list/${list.id}`, {
-            method: "delete",
-            headers: new Headers({
-                'Authorization': `Bearer ${token}`,
-                "content-type": "application/json",
-            }),
-            mode: 'cors',
-        }).then(response => response.json())
+        Api.fetchResource("list", {
+            method: "delete"
+        })
             .then(response => {
                 setRefresh(false)
                 setOpen(false)

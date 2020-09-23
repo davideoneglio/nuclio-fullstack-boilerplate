@@ -1,24 +1,17 @@
 import React from "react";
 import '../BoardComponent.css';
-import ListModal from "../List/ListModal";
 import Card from "./Card";
+import Api from "../../../api";
 
 export const CardContainer = (props) => {
 
     const {card, setRefresh} = props;
 
-    const token = localStorage.getItem('token');
-
     const handleDeleteCard = () => {
-        fetch(`http://localhost/api/card/${card.id}`, {
+        Api.fetchResource("card", {
             method: "delete",
-            headers: new Headers({
-                'Authorization': `Bearer ${token}`,
-                "content-type": "application/json",
-            }),
-            mode: 'cors',
-        }).then(response => response.json())
-            .then(response => {
+        })
+            .then(() => {
                 setRefresh(false)
             })
     }

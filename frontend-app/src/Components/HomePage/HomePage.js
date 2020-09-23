@@ -5,6 +5,7 @@ import Teams from "./Teams/Teams";
 import RecentlyViews from "./RecentlyViews/RecentlyViews";
 import PersonalBoards from "./PersonalBoards/PersonalBoards";
 import Navbar from "../Navbar/Navbar";
+import Api from "../../api";
 
 const HomePage = props => {
 
@@ -12,15 +13,7 @@ const HomePage = props => {
     const [ownerBoards, setOwnerBoards] = useState("");
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        fetch("http://localhost/api/board?_start=0&_limit=2" , {
-            method: "GET",
-            mode: "cors",
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                "content-type": "application/json",
-            }})
-            .then(responseBoard => responseBoard.json())  //leer el JSon
+        Api.fetchResource("board", {}) //intentar delimitar los resultados que salen por params
             .then(pinFormResponse => { //Caracteristicas de la respuesta
                 //pinFormResponse.sort((a, b) => parseFloat(a.lastView) - parseFloat(b.lastView));
                 setOwnerBoards(pinFormResponse);

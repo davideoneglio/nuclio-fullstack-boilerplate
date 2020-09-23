@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import './ActivityStyles.css';
+import Api from "../../../api";
 
 export const ShowActivity = (props) => {
 
@@ -10,44 +11,27 @@ export const ShowActivity = (props) => {
     const [addActivity, setAddActivity] = useState({text: ""});
     const [ordering, setOrdering] = React.useState(0)
 
-    const token = localStorage.getItem('token');
-
     const handleChange = (key, newValue) => {
         setAddActivity({...addActivity, [key]: newValue})
     }
 
     useEffect(() => {
-        fetch(`http://localhost/api/activities_order?card_id=${id}`, {
-            method: 'GET',
-            headers: new Headers({
-                'Authorization': `Bearer ${token}`,
-                "content-type": "application/json",
-            }),
-            mode: 'cors',
-        })
-            .then(response => response.json())
-            .then(response => {
+        Api.fetchResource("activities_order", {}, id, {"card_id": id})
+          .then(response => {
                 setOrdering(response)
             })
-            .catch(error => console.log(error));
+           .catch(error => console.log(error));
     }, [])
 
     const handleOnClickSubmit = () => {
-        fetch("http://localhost/api/card_activity", {
+        Api.fetchResource("card_activity", {
             "method": "POST",
-            "mode": "cors",
-            "headers": {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            "body": JSON.stringify({
+            "body": {
                 "text": addActivity.text,
                 "card_id": id,
                 "ordering": ordering + 1
-            })
-        })
-            .then((response) => {
+        }
+        }).then((response) => {
                 if (response.ok) {
                     setOrdering(ordering + 1)
                     return response.json();
@@ -61,15 +45,7 @@ export const ShowActivity = (props) => {
 
     useEffect(() => {
         if(!refreshCard) {
-            fetch(`http://localhost/api/card_activity/card/${id}`, {
-                method: 'GET',
-                headers: new Headers({
-                    'Authorization': `Bearer ${token}`,
-                    "content-type": "application/json",
-                }),
-                mode: 'cors',
-            })
-                .then(response => response.json())
+            Api.fetchResource("card_activity", {}, id)
                 .then(response => {
                     if (response.length > 0) {
                         setRenderActivities(response);

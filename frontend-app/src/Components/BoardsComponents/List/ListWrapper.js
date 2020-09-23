@@ -2,12 +2,11 @@ import React, {useEffect, useState} from "react";
 import '../BoardComponent.css';
 import {CardContainer} from "../Card/CardContainer";
 import ListModal from "./ListModal";
+import Api from "../../../api";
 
 export const ListWrapper = (props) => {
 
     const {list, setRefresh, board, orderingControl} = props;
-
-    const token = localStorage.getItem('token');
 
     const [addCard, setAddCard] = useState({description: ""}) //innecesario utilizar objeto si solo hay un valor - cambiar
     const [ordering, setOrdering] = React.useState(0)
@@ -18,15 +17,7 @@ export const ListWrapper = (props) => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost/api/cards_order?list_id=${list.id}`, {
-            method: 'GET',
-            headers: new Headers({
-                'Authorization': `Bearer ${token}`,
-                "content-type": "application/json",
-            }),
-            mode: 'cors',
-        })
-            .then(response => response.json())
+        Api.fetchResource("cards_order", {}, undefined, {"list_id": list.id})
             .then(response => {
                 setOrdering(response)
             })
@@ -34,21 +25,14 @@ export const ListWrapper = (props) => {
     }, [])
 
     const handleOnClickSubmit = () => {
-        fetch("http://localhost/api/card", {
+        Api.fetchResource("card", {
             "method": "POST",
-            "mode": "cors",
-            "headers": {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            "body": JSON.stringify({
+            "body": {
                 "description": addCard.description,
                 "list_id": list.id,
                 "ordering": ordering + 1
-            })
-        })
-            .then((response) => {
+            }
+        }).then((response) => {
                 if(response.ok) {
                     setOrdering(ordering + 1)
                     return response.json()
@@ -61,15 +45,7 @@ export const ListWrapper = (props) => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost/api/existing_lists?board_id=${board.id}`, {
-            method: 'GET',
-            headers: new Headers({
-                'Authorization': `Bearer ${token}`,
-                "content-type": "application/json",
-            }),
-            mode: 'cors',
-        })
-            .then(response => response.json())
+        Api.fetchResource("existing_lists", {}, undefined, {"board_id": board.id})
             .then(response => {
                 setNumberOfLists(response)
             })

@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from "react";
 import '../BoardComponent.css';
+import Api from "../../../api";
 
 export const AddList = (props) => {
 
     const {board, setRefresh} = props;
-
-    const token = localStorage.getItem('token');
 
     const [addList, setAddList] = useState({title: ""});
     const [ordering, setOrdering] = React.useState(0)
@@ -15,15 +14,7 @@ export const AddList = (props) => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost/api/lists_order?board_id=${board.id}`, {
-            method: 'GET',
-            headers: new Headers({
-                "Authorization": `Bearer ${token}`,
-                "content-type": "application/json",
-            }),
-            mode: "cors",
-        })
-            .then(response => response.json())
+        Api.fetchResource("lists_order", {}, undefined, {"board_id": board.id})
             .then(response => {
                 setOrdering(response)
             })
@@ -31,25 +22,17 @@ export const AddList = (props) => {
     },[])
 
     const handleOnClickSubmit = () => {
-        fetch("http://localhost/api/list", {
+        Api.fetchResource("list", {
             "method": "POST",
-            "mode": "cors",
-            "headers": {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            "body": JSON.stringify({
+            "body": {
                 "title": addList.title,
                 "board_id": board.id,
                 "ordering": ordering + 1
-            })
-        })
-            .then((response) => {
+            }
+        }).then((response) => {
                 if(response.ok) {
                     setOrdering(ordering + 1)
                     return response.json();
-
                 }
                 throw response;
             }).then(response => {

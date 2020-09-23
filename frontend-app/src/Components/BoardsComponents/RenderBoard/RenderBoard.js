@@ -5,6 +5,7 @@ import BoardHeader from "../BoardHeader/BoardHeader";
 import {ListWrapper} from "../List/ListWrapper";
 import {AddList} from "../List/AddList";
 import '../BoardComponent.css';
+import Api from "../../../api";
 
 
 const RenderBoard = (props) => {
@@ -12,7 +13,6 @@ const RenderBoard = (props) => {
     const {match} = props
 
     const id = match.params.id;
-    const token = localStorage.getItem('token');
 
     const [board, setBoard] = useState(undefined);
     const [refresh, setRefresh] = useState(false);
@@ -20,15 +20,7 @@ const RenderBoard = (props) => {
 
     useEffect(() => {
         if(!refresh) {
-            fetch(`http://localhost/api/boardata/${id}`, {
-                method: 'GET',
-                headers: new Headers({
-                    'Authorization': `Bearer ${token}`,
-                    "content-type": "application/json",
-                }),
-                mode: 'cors',
-            })
-                .then(response => response.json())
+            Api.fetchResource("boardata", {}, id)
                 .then(response => {
                     setBoard(response);
                     setRefresh(true);
