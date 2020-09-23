@@ -27,7 +27,29 @@
     border-color: #d4d4d4;
 }
 
+.open-list-composer-activity {
+    border-radius: 3px;
+    color: #5e6c84;
+    display: block;
+    flex: 1 0 auto;
+    margin: 2px 0 12px 0;
+    padding: 4px 8px;
+    position: relative;
+    text-decoration: none;
+    -webkit-user-select: none;
+    user-select: none;
+    border-color: #d4d4d4;
+}
+
 .submit-button-card {
+    background-color: #5aac44;
+    box-shadow: none;
+    border: none;
+    color: #fff;
+    margin: 2px 8px 8px 8px;
+}
+
+.submit-button-item {
     background-color: #5aac44;
     box-shadow: none;
     border: none;
@@ -120,14 +142,6 @@
 
 }
 
-.submit-button-card {
-    background-color: #5aac44;
-    box-shadow: none;
-    border: none;
-    color: #fff;
-    margin: 2px 8px 8px 8px;;
-}
-
 .list-content-header {
     display: flex;
     align-items: center;
@@ -139,8 +153,6 @@
 .list-header-button {
     content: "\E94E";
 }
-
-
 
 .modal-wrapper-list {
     position: fixed;

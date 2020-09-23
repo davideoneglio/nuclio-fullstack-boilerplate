@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth.jwt'], function (){
 
     Route::get('/board', 'BoardsController@findAllBoardsForLoggedUser');
 
+    Route::get('/boards_order', 'BoardsController@findLatestBoardCreated');
+
     Route::put('/board/{id}', 'BoardsController@update');
 
     Route::delete('/board/{id}', 'BoardsController@delete');
@@ -52,6 +54,10 @@ Route::group(['middleware' => 'auth.jwt'], function (){
     Route::get('/list/{id}', 'ListsController@findById');
 
     Route::get('/list/board/{board_id}', 'ListsController@findAllListsForBoard');
+
+    Route::get('/lists_order', 'ListsController@findLatestListCreated');
+
+    Route::get('/existing_lists', 'ListsController@findNumberOfExistingListsForSelectedBoard');
 
     Route::put('/list/{id}', 'ListsController@update');
 
@@ -65,6 +71,8 @@ Route::group(['middleware' => 'auth.jwt'], function (){
 
     Route::get('/card/list/{list_id}', 'CardsController@findAllCardsForList');
 
+    Route::get('/cards_order', 'CardsController@findLatestCardCreated');
+
     Route::put('/card/{id}', 'CardsController@update');
 
     Route::delete('/card/{id}', 'CardsController@delete');
@@ -77,11 +85,13 @@ Route::group(['middleware' => 'auth.jwt'], function (){
 
     Route::get('/card_activity/card/{card_id}', 'CardActivityController@findAllActivitiesForCard');
 
+    Route::get('/activities_order', 'CardActivityController@findLatestActivityCreated');
+
     Route::put('/card_activity/{id}', 'CardActivityController@update');
 
     Route::delete('/card_activity/{id}', 'CardActivityController@delete');
 
-    //LOGOUT - pendiente revisar - pepe 17 julio
+    //LOGOUT - pendiente revisar - pepe 17 julio  // AL FINAL LOG OUT EN FRONTEND
     Route::get('/logout', function() {
         auth()->logout();
 

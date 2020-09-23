@@ -4,6 +4,7 @@ import imageRight from '../../Components/SignupPage/images/Captura de pantalla 2
 import imageLeft from '../../Components/SignupPage/images/Captura de pantalla 2020-07-03 a las 19.41.48.png'
 import {InputForm} from "./InputForm/inputform";
 import {useHistory} from 'react-router-dom';
+import Api from "../../api";
 
 const Signup = props => {
 
@@ -15,7 +16,7 @@ const Signup = props => {
 
     const [ data, setData ] = useState(initialState);
     const [ errors, setErrors ] = useState({email: false, password: false})
-    const [ userAlreadyRegisteredError, setUserAlreadyRegisteredError ] = useState("");
+    const [ userAlreadyRegisteredError, setUserAlreadyRegisteredError ] = useState(false);
 
     const history = useHistory();
 
@@ -46,36 +47,18 @@ const Signup = props => {
 
     const handleOnClickSubmit = () => {
         if(!errors.password && !errors.email) {
-            fetch("http://localhost/api/register", {
-            "method": "POST",
-            "mode": "cors",
-            "headers": {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            "body": JSON.stringify(data),
-        })
-            .then((response) => {
-                /*if(!response.ok) {
-                    debugger;
-                    setErrors({...errors, response: errors});
-                    debugger;
-                }*/ //No tiene funcionalidad este trozo de código
-                return response.json()
+            Api.fetchResource("register", {
+                "method": "POST",
+                "body": data,
             }).then(response => {
                 if(response.error) {
-                    setUserAlreadyRegisteredError({...userAlreadyRegisteredError, response: userAlreadyRegisteredError})
+                    setUserAlreadyRegisteredError(true)
                 }else{
                     localStorage.setItem('token', response.access_token);
-                    fetch("http://localhost/api/sendEmail",{
+                    Api.fetchResource("sendEmail", {
                         "method": "POST",
-                        "mode": "cors",
-                        "headers": {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        },
-                        "body": JSON.stringify(data),
-                    }).then(response => {
+                        "body": data,
+                    }).then(() => {
                         history.push('/home');
                     })
                 }

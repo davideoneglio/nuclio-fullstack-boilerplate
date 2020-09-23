@@ -10,6 +10,7 @@ class Board extends Model
 
     protected $fillable = [
         'title',
+        'ordering',
         'user_id'
     ];
 

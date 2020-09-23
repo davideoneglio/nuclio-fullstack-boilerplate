@@ -1,57 +1,57 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import '../BoardComponent.css';
+import Api from "../../../api";
 
 export const AddList = (props) => {
 
     const {board, setRefresh} = props;
 
-    const token = localStorage.getItem('token');
-
-    const [addList, setAddList] = useState({title: "Add another list"});
+    const [addList, setAddList] = useState({title: ""});
+    const [ordering, setOrdering] = React.useState(0)
 
     const handleChange = (key, newValue) => {
         setAddList({...addList, [key]: newValue})
     }
 
+    useEffect(() => {
+        Api.fetchResource("lists_order", {}, undefined, {"board_id": board.id})
+            .then(response => {
+                setOrdering(response)
+            })
+            .catch(error => console.log(error));
+    },[])
+
     const handleOnClickSubmit = () => {
-        fetch("http://localhost/api/list", {
+        Api.fetchResource("list", {
             "method": "POST",
-            "mode": "cors",
-            "headers": {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            "body": JSON.stringify({
+            "body": {
                 "title": addList.title,
                 "board_id": board.id,
-                "ordering": 1
-            })
-        })
-            .then((response) => {
+                "ordering": ordering + 1
+            }
+        }).then((response) => {
                 if(response.ok) {
+                    setOrdering(ordering + 1)
                     return response.json();
-
                 }
                 throw response;
             }).then(response => {
                 setRefresh(false);
-                setAddList({...addList, title:"Add another list"})
+                setAddList({...addList, title:""})
         })
     }
 
     return (
         <div className="list-composer-container">
             <input className="open-list-composer"
+                   placeholder="Add list"
                    value={addList.title}
                    onChange={event => handleChange("title", event.target.value)}/>
 
             <button type="submit"
-                    className="submit-button-card"
-                    value="Add card"
+                    className="submit-button-item"
+                    value="Add list"
                     onClick={handleOnClickSubmit} >Add List</button>
-
         </div>
-
     )
 }

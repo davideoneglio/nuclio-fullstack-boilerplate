@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {useHistory} from 'react-router-dom';
+import Api from "../../api";
 
 function getModalStyle() {
     const top = 20
@@ -35,33 +36,32 @@ export default function BoardModal(props) {
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
-    const [addBoard, setAddBoard] = React.useState({title: "Add board"})
+    const [addBoard, setAddBoard] = React.useState({title: ""})
+    const [ordering, setOrdering] = React.useState(0)
 
     const handleChange = (key, newValue) => {
         setAddBoard({...addBoard, [key]: newValue})
     }
 
-    const token = localStorage.getItem('token');
+    useEffect(() => {
+        Api.fetchResource("boards_order", {}, id, {"user_id": id})
+            .then(response => {
+                setOrdering(response);
+        }).catch(error => console.log(error));
+    }, [])
 
-    //GESTIONAR RESPONSE CUANDO BOARD YA CREADO - REDIRECT AL BOARD CREADO
     const handleOnClickSubmit = () => {
-        fetch("http://localhost/api/board", {
+        Api.fetchResource("board", {
             "method": "POST",
-            "mode": "cors",
-            "headers": {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            "body": JSON.stringify({
+            "body": {
                 "title": addBoard.title,
-                "id": id
-            })
-        })
-            .then((response) => {
+                "user_id": id,
+                "ordering": ordering + 1
+            }
+        }).then((response) => {
                 if(response.ok) {
+                    setOrdering(ordering + 1)
                     return response.json();
-
                 }
                 throw response;
             }).then(response => {
@@ -72,7 +72,10 @@ export default function BoardModal(props) {
     const body = (
         <div style={modalStyle} className={classes.paper}>
 
-            <textarea autoFocus={true} onChange={event => handleChange("title", event.target.value)}>Add new Board</textarea>
+            <textarea autoFocus={true}
+                      placeholder="Add board"
+                      value={addBoard.title}
+                      onChange={event => handleChange("title", event.target.value)}>Add new Board</textarea>
 
             <button type="submit"
                     className="#"
@@ -93,6 +96,5 @@ export default function BoardModal(props) {
                 {body}
             </Modal>
         </div>
-
     );
 }

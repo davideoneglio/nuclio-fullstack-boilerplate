@@ -12,6 +12,7 @@ class CardActivity extends Model
 
     protected $fillable = [
         'card_id',
+        'ordering',
         'text'
     ];
 

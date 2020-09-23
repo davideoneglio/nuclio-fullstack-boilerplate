@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import './ActivityStyles.css';
+import Api from "../../../api";
 
 export const ShowActivity = (props) => {
 
@@ -7,53 +8,48 @@ export const ShowActivity = (props) => {
 
     const [refreshCard, setRefreshCard] = React.useState(false);
     const [renderActivities, setRenderActivities] = React.useState([]); //con esto evito hacer el primer render en undefinded
-    const [addActivity, setAddActivity] = useState({text: "Add activity"});
-
-    const token = localStorage.getItem('token');
+    const [addActivity, setAddActivity] = useState({text: ""});
+    const [ordering, setOrdering] = React.useState(0)
 
     const handleChange = (key, newValue) => {
         setAddActivity({...addActivity, [key]: newValue})
     }
 
+    useEffect(() => {
+        Api.fetchResource("activities_order", {}, id, {"card_id": id})
+          .then(response => {
+                setOrdering(response)
+            })
+           .catch(error => console.log(error));
+    }, [])
+
     const handleOnClickSubmit = () => {
-        fetch("http://localhost/api/card_activity", {
+        Api.fetchResource("card_activity", {
             "method": "POST",
-            "mode": "cors",
-            "headers": {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            "body": JSON.stringify({
+            "body": {
                 "text": addActivity.text,
                 "card_id": id,
-                //añadir un ordering en la activity, puede haber más de una
-            })
-        })
-            .then((response) => {
+                "ordering": ordering + 1
+        }
+        }).then((response) => {
                 if (response.ok) {
+                    setOrdering(ordering + 1)
                     return response.json();
                 }
                 throw response;
             }).then(response => {
-            setAddActivity({text: "Add activity"})
+            setAddActivity({text: ""})
             setRefreshCard(false);
         })
     }
 
     useEffect(() => {
         if(!refreshCard) {
-            fetch(`http://localhost/api/card_activity/card/${id}`, {
-                method: 'GET',
-                headers: new Headers({
-                    'Authorization': `Bearer ${token}`,
-                    "content-type": "application/json",
-                }),
-                mode: 'cors',
-            })
-                .then(response => response.json())
+            Api.fetchResource("card_activity", {}, id)
                 .then(response => {
-                    setRenderActivities(response);
+                    if (response.length > 0) {
+                        setRenderActivities(response);
+                    }
                     setRefreshCard(true);
                 })
                 .catch(error => console.log(error));
@@ -61,17 +57,21 @@ export const ShowActivity = (props) => {
     }, [refreshCard])
 
     return (
-        <div className="list-composer-container-activity">
-            {renderActivities.map((activity) => <p>{activity.text}</p>)}
-            <br/>
-            <input className="open-list-composer"
-                   value={addActivity.text}
-                   onChange={event => handleChange("text", event.target.value)}/>
+        <div >
+            <div className="list-composer-container-activity">
+                <input className="open-list-composer-activity"
+                       placeholder="Add activity"
+                       value={addActivity.text}
+                       onChange={event => handleChange("text", event.target.value)}/>
 
-            <button type="submit"
-                    className="submit-button-card"
-                    value="Add activity"
-                    onClick={handleOnClickSubmit} >Add Activity</button>
+                <button type="submit"
+                        className="submit-button-item"
+                        value="Add activity"
+                        onClick={handleOnClickSubmit} >Add Activity</button>
+            </div>
+
+            {renderActivities.map((activity) => <li className="show-activities-display" >{activity.text}</li>)}
+            <br/>
         </div>
 
     )

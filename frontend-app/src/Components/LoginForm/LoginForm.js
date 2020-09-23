@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './LoginForm.css';
 import { useHistory } from "react-router-dom";
+import Api from "../../api";
 
 const LoginForm = props => {
     const [data, setData] = useState({email: "", password: ""});
@@ -49,17 +50,10 @@ const LoginForm = props => {
 
     const handleOnClickSubmit = () => {
         if (!formHasErrors(errors)) {
-            fetch("http://localhost/api/login", {
+            Api.fetchResource("login", {
                 method: "post",
-                mode: "cors",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(data),
-            })
-                .then((response) => {
-                    return response.json()
-                }).then(response => {
+                body: data,
+             }).then(response => {
                 if (response.error) {
                     setErrors({...errors, response: errors})
                 } else {

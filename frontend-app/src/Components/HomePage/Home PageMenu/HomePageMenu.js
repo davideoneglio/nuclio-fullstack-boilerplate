@@ -22,7 +22,7 @@ const HomePageMenu = props => {
                 return(
                     <div className={activeMenu[key] === true ? "active menu-text" : "menu-text"} onClick={(e) => {changeMenu(key)}}>
                         <FontAwesomeIcon className={"menu-icon"} icon={faTrello} />
-                        <div>{menu[key]}</div>
+                        <div className="menu-items-left" >{menu[key]}</div>
                     </div>
                 )
             })}

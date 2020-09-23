@@ -7,11 +7,14 @@ import {CreateModalUser} from "./CreateModalUser";
 
 const Navbar = props => {
 
-    const {setRefresh} = props
+    const {setRefresh, personalBoards} = props
+
+    //console.log(personalBoards) //con esto estaba intentando obtener el id del user para despues poder coger su nombre y usarlo en User de la navbar
 
     const [ showiconplus, setShowplus ] = useState(false);
     const [ showiconbell, setShowbell ] = useState(false);
     const [ showinconuser, setShowiconuser ] = useState(false);
+
 
     return (
 
@@ -43,7 +46,7 @@ const Navbar = props => {
                     {showiconbell && <CreateModalIconBell showiconbell={showiconbell} closeModalHandler={() => setShowbell(false)}/>}
                     <button onClick={() => setShowbell (true)} className="button-container-bell" href="/"> <i className="icon-bell"/> </button>
                     {showiconbell && <CreateModalIconBell showiconbell={showiconbell} closeModalHandler={() => setShowbell(false)}/>}
-                    <button onClick={() => setShowiconuser (true)} className="button-container-navbar"> User ID </button>
+                    <button onClick={() => setShowiconuser (true)} className="button-container-navbar"> User </button>
                     {showinconuser && <CreateModalUser showiconuser={showinconuser} closeModalHandler={() => setShowiconuser(false)}/>}
 
                 </div>

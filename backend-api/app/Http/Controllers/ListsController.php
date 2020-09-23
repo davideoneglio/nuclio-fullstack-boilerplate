@@ -19,7 +19,7 @@ class ListsController extends Controller
         if ($board === null) {
             $code = Response::HTTP_NOT_FOUND;
             return response()->json(["error" => "Board does not exist"])->setStatusCode($code);
-        }else{
+        } else {
             $list = new BoardList($data);
 
             $list->save();
@@ -32,7 +32,7 @@ class ListsController extends Controller
     {
         $list = BoardList::where('id', $id)->first();
 
-        if($list === null) {
+        if ($list === null) {
             $code = Response::HTTP_NOT_FOUND;
             return response()->json(["error" => "List does not exist"])->setStatusCode($code);
         }
@@ -46,12 +46,29 @@ class ListsController extends Controller
 
         $list = BoardList::where('board_id', $board_id)->get();
 
-        if(count($list) === 0) {
+        if (count($list) === 0) {
             $code = Response::HTTP_NOT_FOUND;
             return response()->json(["error" => "This board has no lists"])->setStatusCode($code);
-        }else{
+        } else {
             return response()->json($list);
         }
+    }
+
+    public function findLatestListCreated(Request $request)
+    {
+        $board_id = $request->query()["board_id"];
+        $list_order = BoardList::where("board_id", $board_id)->max('ordering');
+        if (is_null($list_order)) {
+            $list_order = 0;
+        }
+        return response()->json($list_order);
+    }
+
+    public function findNumberOfExistingListsForSelectedBoard(Request $request)
+    {
+        $board_id = $request->query()["board_id"];
+        $existing_lists = BoardList::where("board_id", $board_id)->count('ordering');
+        return response()->json($existing_lists);
     }
 
     //falta hacer la asociación al usuario

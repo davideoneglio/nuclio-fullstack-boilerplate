@@ -13,7 +13,7 @@ class BoardsController extends Controller
 {
     public function create(Request $request)
     {
-        $data = $request->only(["title"]);
+        $data = $request->only(["title", "ordering"]);
 
         $user = $this->getAuthenticatedUser();
 
@@ -33,7 +33,7 @@ class BoardsController extends Controller
         if ($board === null) {
             $code = Response::HTTP_NOT_FOUND;
             return response()->json(["error" => "Board not accessible to this user"])->setStatusCode($code);
-        }else{
+        } else {
             return response()->json($board);
         }
     }
@@ -48,6 +48,16 @@ class BoardsController extends Controller
             "lists" => $lists
         ];
         return response()->json($dataResponse);
+    }
+
+    public function findLatestBoardCreated(Request $request)
+    {
+        $user_id = $request->query()["user_id"];
+        $board_order = Board::where("user_id", $user_id)->max('ordering');
+        if(is_null($board_order)){
+            $board_order = 0;
+        }
+        return response()->json($board_order);
     }
 
 
